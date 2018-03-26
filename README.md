@@ -1,0 +1,1 @@
+This application utilizes a quiz to match users with 5 compatible dog breeds. After the user selects a dog breed, the app then renders available dog adoptions, for that specific breed, using PetFinder's API. 
