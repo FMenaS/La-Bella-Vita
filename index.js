@@ -63,6 +63,297 @@ const questionBank= [
 
 ];
 
+
+const dogBreedMatch= [
+	//totalPoints= 0
+	{
+		breeds: ["Chow Chow",
+				 "Chinese Shar-Pei",
+				 "Chinese Crested",
+				 "Pekingese",
+				 "Basset Hound",
+				 "Japanese Chin",
+				 "Sussex Spaniel",
+				 "Borzoi",
+				 "Chihuahua",
+				 "Pomeranian"],
+	}
+	//totalPoints= 1
+	{
+		breeds: ["Chow Chow",
+				 "Chinese Shar-Pei",
+				 "Chinese Crested",
+				 "Pekingese",
+				 "Basset Hound",
+				 "Japanese Chin",
+				 "Sussex Spaniel",
+				 "Borzoi",
+				 "Chihuahua",
+				 "Pomeranian"],
+	}
+	//totalPoints= 2
+	{
+		breeds: ["Pomeranian",
+				 "Shih Tzu",
+				 "Caucasian Sheperd Dog",
+				 "Clumber Spaniel",
+				 "Saint Bernard",
+				 "Neapolitan Mastiff",
+				 "Newfoundland",
+				 "Maltese Shih Tzu",
+				 "Puggle",
+				 "Komondor"],
+	}
+	//totalPoints= 3
+	{
+		breeds: ["Dandie Dinmont Terrier",
+				 "English Toy Spaniel",
+				 "Maltese",
+				 "Maltipoo",
+				 "Bulldog",
+				 "Collie",
+				 "Peekapoo",
+				 "Anatolian Sheperd Dog",
+				 "Mutt",
+				 "Xoloitzcuintli"],
+	}
+	//totalPoints= 4
+	{
+		breeds: ["Shiba Inu",
+				 "Irish Wolfhound",
+				 "Azawakh",
+				 "Dogue de Bordeaux",
+				 "Tibetan Mastiff",
+				 "Cesky Terrier",
+				 "Coton de Tulear",
+				 "Havanese",
+				 "Cardigan Welsh Corgi",
+				 "Chinook"],
+	}
+	//totalPoints= 5
+	{
+		breeds: ["Dachshund",
+				 "Cocker Spaniel",
+				 "Pomsky",
+				 "Pharaoh Hound",
+				 "Bolognese",
+				 "Basenji",
+				 "French Bulldog",
+				 "Bullmastiff"
+				 "Cockapoo",
+				 "Doberman Pinscher"],
+	}
+	//totalPoints= 6
+	{
+		breeds: ["Skye Terrier",
+				 "Affenpinscher",
+				 "Bernese Mountain Dog",
+				 "Canaan Dog",
+				 "Cavalier King Charles Spaniel",
+				 "Mastiff",
+				 "Tibetan Spaniel",
+				 "Alaskan Klee Kai",
+				 "Italian Greyhound",
+				 "Sealyham Terrier"],
+	}
+	//totalPoints= 7
+	{
+		breeds: ["Shetland Sheepdog",
+				 "Cane Corso",
+				 "Catahoula Leopard Dog",
+				 "Pug",
+				 "American Staffordshire Terrier",
+				 "Bernedoodle",
+				 "Keeshond",
+				 "Lhasa Apso",
+				 "Lancashire Heeler",
+				 "Silky Terrier"],
+	}
+	//totalPoints= 8
+	{
+		breeds: ["Barbet",
+				 "Yorkipoo",
+				 "Staffordshire Bull Terrier",
+				 "Boerboel",
+				 "Bedlington Terrier",
+				 "Dutch Sheperd",
+				 "Old English Sheepdog",
+				 "Pembroke Welsh Corgi",
+				 "Polish Lowland Sheepdog",
+				 "Schnoodle"],
+	}
+	//totalPoints= 9
+	{
+		breeds: ["Dogo Argentino",
+				 "Afghan Hound",
+				 "Bichon Frise",
+				 "Stabyhoun",
+				 "Akita",
+				 "Lowchen",
+				 "Miniature Pinscher",
+				 "Poodle",
+				 "Soft Coated Wheaten Terrier",
+				 "American Bulldog"],
+	}
+	//totalPoints= 10
+	{
+		breeds: ["Briard",
+				 "Leonberger",
+				 "Manchester Terrier",
+				 "Pocket Beagle",
+				 "Scottish Terrier",
+				 "West Highland White Terrier",
+				 "English Setter",
+				 "Black Mouth Cur",
+				 "Bracco Italiano",
+				 "Plott"],
+	}
+	//totalPoints= 11
+	{
+		breeds: ["Treeing Tennessee Brindle",
+				 "Treeing Walker Coonhound",
+				 "Sloughi",
+				 "Greater Swiss Mountain Dog",
+				 "Bearded Collie",
+				 "Norfolk Terrier",
+				 "Rottweiler",
+				 "Bouvier des Flandres",
+				 "Glen of Imaal Terrier",
+				 "Icelandic Sheepdog"],
+	}
+	//totalPoints= 12
+	{
+		breeds: ["American Eskimo Dog",
+				 "Belgian Tervuren",
+				 "Brussels Griffon",
+				 "Curly-Coated Retriever",
+				 "English Cocker Spaniel",
+				 "Wirehaired Pointing Griffon",
+				 "Lakeland Terrier",
+				 "Goldendoodle",
+				 "Papillon",
+				 "Appenzeller Sennenhunde"],
+	}
+	//totalPoints= 13
+	{
+		breeds: ["Korean Jindo Dog",
+				 "Kerry Blue Terrier",
+				 "Kuvasz",
+				 "American Water Spaniel",
+				 "Giant Schnauzer",
+				 "Golden Retriever",
+				 "Gordon Setter",
+				 "Saluki",
+				 "Samoyed",
+				 "Whippet"],
+	}
+	//totalPoints= 14
+	{
+		breeds: ["Greyhound",
+				 "Irish Water Spaniel",
+				 "Miniature Schnauzer",
+				 "Norwegian Elkhound",
+				 "Bloodhound",
+				 "American Pit Bull Terrier",
+				 "Beagle",
+				 "Black Russian Terrier",
+				 "Boston Terrier",
+				 "Cairn Terrier"],
+	}
+	//totalPoints= 15
+	{
+		breeds: ["Irish Terrier",
+				 "Norwich Terrier",
+				 "Rat Terrier",
+				 "Yorkshire Terrier",
+				 "Border Terrier",
+				 "Norwegian Buhund",
+				 "Norwegian Lundehund",
+				 "Redbone Coonhound",
+				 "Rhodesian Ridgeback",
+				 "Kooikerhondje"],
+	}
+	//totalPoints= 16
+	{
+		breeds: ["Small Munsterlander Pointer",
+				 "Airedale Terrier",
+				 "Belgian Sheepdog",
+				 "Berger Picard",
+				 "Border Collie",
+				 "Brittany",
+				 "English Springer Spaniel",
+				 "Field Spaniel",
+				 "German Pinscher",
+				 "German Shorthaired Pointer"],
+	}
+	//totalPoints= 17
+	{
+		breeds: ["Ibizan Hound",
+				 "Irish Setter",
+				 "Nova Scotia Duck Trolling Retriever",
+				 "Portuguese Water Dog",
+				 "Schipperke",
+				 "Siberian Husky",
+				 "Standard Schnauzer",
+				 "Swedish Vallhund",
+				 "Dalmatian",
+				 "Welsh Springer Spaniel"],
+	}
+	//totalPoints= 18
+	{
+		breeds: ["Australian Terrier",
+				 "Finnish Lapphund",
+				 "Bull Terrier",
+				 "Pyrenean Sheperd",
+				 "American Foxhound",
+				 "Australian Sheperd",
+				 "Belgian Malinois",
+				 "Bluetick Coonhound",
+				 "English Foxhound",
+				 "Entlebucher Mountain Dog"],
+	}
+	//totalPoints= 19
+	{
+		breeds: ["Finnish Spitz",
+				 "Flat-Coated Retriever",
+				 "German Wirehaired Pointer",
+				 "Harrier",
+				 "Labradoodle",
+				 "Otterhound",
+				 "Petit Basset Griffon Vendeen",
+				 "Tibetan Terrier",
+				 "Toy Fox Terrier",
+				 "Vizsla"],
+	}
+	//totalPoints= 20
+	{
+		breeds: ["Boykin Spaniel",
+				 "Chesapeake Bay Retriever",
+				 "Great Pyrenees",
+				 "Alaskan Malamute",
+				 "American English Coonhound",
+				 "Australian Cattle Dog",
+				 "Black and Tan Coonhound",
+				 "Boxer",
+				 "Fox Terrier"
+				 "German Sheperd Dog"],
+	}
+	//totalPoints= 21
+	{
+		breeds: ["Goldador",
+				 "Great Dane",
+				 "Irish Red and White Setter",
+				 "Jack Russell Terrier",
+				 "Labrador Retriever",
+				 "Pointer",
+				 "Puli",
+				 "Scottish Deerhound",
+				 "Weimaraner",
+				 "Welsh Terrier"],
+	}
+]
+
+
 function displayQuestion(){
 	console.log('displayQuestion ran')
 	$(".js-quiz-section").html(generateQuestion());
