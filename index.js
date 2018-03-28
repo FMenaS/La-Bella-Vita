@@ -3,6 +3,9 @@
 let currentQuestion=0;
 let totalPoints=0;
 
+const WIKIPEDIA_SEARCH_URL = 'https://en.wikipedia.org/w/api.php';
+const PETFINDER_SEARCH_URL = '';
+
 const questionBank= [
 	{
 		question: "How much time do you spend exercising everyday?",
@@ -66,7 +69,7 @@ const questionBank= [
 
 const dogBreedMatch= [
 	//totalPoints= 0
-	{
+  {
 		breeds: ["Chow Chow",
 				 "Chinese Shar-Pei",
 				 "Chinese Crested",
@@ -76,8 +79,9 @@ const dogBreedMatch= [
 				 "Sussex Spaniel",
 				 "Borzoi",
 				 "Chihuahua",
-				 "Pomeranian"],
-	}
+				 "Pomeranian"]	
+    
+  },
 	//totalPoints= 1
 	{
 		breeds: ["Chow Chow",
@@ -89,8 +93,8 @@ const dogBreedMatch= [
 				 "Sussex Spaniel",
 				 "Borzoi",
 				 "Chihuahua",
-				 "Pomeranian"],
-	}
+				 "Pomeranian"]
+	},
 	//totalPoints= 2
 	{
 		breeds: ["Pomeranian",
@@ -103,7 +107,7 @@ const dogBreedMatch= [
 				 "Maltese Shih Tzu",
 				 "Puggle",
 				 "Komondor"],
-	}
+	},
 	//totalPoints= 3
 	{
 		breeds: ["Dandie Dinmont Terrier",
@@ -116,7 +120,7 @@ const dogBreedMatch= [
 				 "Anatolian Sheperd Dog",
 				 "Mutt",
 				 "Xoloitzcuintli"],
-	}
+	},
 	//totalPoints= 4
 	{
 		breeds: ["Shiba Inu",
@@ -129,7 +133,7 @@ const dogBreedMatch= [
 				 "Havanese",
 				 "Cardigan Welsh Corgi",
 				 "Chinook"],
-	}
+	},
 	//totalPoints= 5
 	{
 		breeds: ["Dachshund",
@@ -139,10 +143,10 @@ const dogBreedMatch= [
 				 "Bolognese",
 				 "Basenji",
 				 "French Bulldog",
-				 "Bullmastiff"
+				 "Bullmastiff",
 				 "Cockapoo",
 				 "Doberman Pinscher"],
-	}
+	},
 	//totalPoints= 6
 	{
 		breeds: ["Skye Terrier",
@@ -155,7 +159,7 @@ const dogBreedMatch= [
 				 "Alaskan Klee Kai",
 				 "Italian Greyhound",
 				 "Sealyham Terrier"],
-	}
+	},
 	//totalPoints= 7
 	{
 		breeds: ["Shetland Sheepdog",
@@ -168,7 +172,7 @@ const dogBreedMatch= [
 				 "Lhasa Apso",
 				 "Lancashire Heeler",
 				 "Silky Terrier"],
-	}
+	},
 	//totalPoints= 8
 	{
 		breeds: ["Barbet",
@@ -181,7 +185,7 @@ const dogBreedMatch= [
 				 "Pembroke Welsh Corgi",
 				 "Polish Lowland Sheepdog",
 				 "Schnoodle"],
-	}
+	},
 	//totalPoints= 9
 	{
 		breeds: ["Dogo Argentino",
@@ -194,7 +198,7 @@ const dogBreedMatch= [
 				 "Poodle",
 				 "Soft Coated Wheaten Terrier",
 				 "American Bulldog"],
-	}
+	},
 	//totalPoints= 10
 	{
 		breeds: ["Briard",
@@ -207,7 +211,7 @@ const dogBreedMatch= [
 				 "Black Mouth Cur",
 				 "Bracco Italiano",
 				 "Plott"],
-	}
+	},
 	//totalPoints= 11
 	{
 		breeds: ["Treeing Tennessee Brindle",
@@ -220,7 +224,7 @@ const dogBreedMatch= [
 				 "Bouvier des Flandres",
 				 "Glen of Imaal Terrier",
 				 "Icelandic Sheepdog"],
-	}
+	},
 	//totalPoints= 12
 	{
 		breeds: ["American Eskimo Dog",
@@ -233,7 +237,7 @@ const dogBreedMatch= [
 				 "Goldendoodle",
 				 "Papillon",
 				 "Appenzeller Sennenhunde"],
-	}
+	},
 	//totalPoints= 13
 	{
 		breeds: ["Korean Jindo Dog",
@@ -246,7 +250,7 @@ const dogBreedMatch= [
 				 "Saluki",
 				 "Samoyed",
 				 "Whippet"],
-	}
+	},
 	//totalPoints= 14
 	{
 		breeds: ["Greyhound",
@@ -259,7 +263,7 @@ const dogBreedMatch= [
 				 "Black Russian Terrier",
 				 "Boston Terrier",
 				 "Cairn Terrier"],
-	}
+	},
 	//totalPoints= 15
 	{
 		breeds: ["Irish Terrier",
@@ -272,7 +276,7 @@ const dogBreedMatch= [
 				 "Redbone Coonhound",
 				 "Rhodesian Ridgeback",
 				 "Kooikerhondje"],
-	}
+	},
 	//totalPoints= 16
 	{
 		breeds: ["Small Munsterlander Pointer",
@@ -285,7 +289,7 @@ const dogBreedMatch= [
 				 "Field Spaniel",
 				 "German Pinscher",
 				 "German Shorthaired Pointer"],
-	}
+	},
 	//totalPoints= 17
 	{
 		breeds: ["Ibizan Hound",
@@ -298,7 +302,7 @@ const dogBreedMatch= [
 				 "Swedish Vallhund",
 				 "Dalmatian",
 				 "Welsh Springer Spaniel"],
-	}
+	},
 	//totalPoints= 18
 	{
 		breeds: ["Australian Terrier",
@@ -311,7 +315,7 @@ const dogBreedMatch= [
 				 "Bluetick Coonhound",
 				 "English Foxhound",
 				 "Entlebucher Mountain Dog"],
-	}
+	},
 	//totalPoints= 19
 	{
 		breeds: ["Finnish Spitz",
@@ -324,7 +328,7 @@ const dogBreedMatch= [
 				 "Tibetan Terrier",
 				 "Toy Fox Terrier",
 				 "Vizsla"],
-	}
+	},
 	//totalPoints= 20
 	{
 		breeds: ["Boykin Spaniel",
@@ -335,9 +339,9 @@ const dogBreedMatch= [
 				 "Australian Cattle Dog",
 				 "Black and Tan Coonhound",
 				 "Boxer",
-				 "Fox Terrier"
+				 "Fox Terrier",
 				 "German Sheperd Dog"],
-	}
+	},
 	//totalPoints= 21
 	{
 		breeds: ["Goldador",
@@ -351,7 +355,7 @@ const dogBreedMatch= [
 				 "Weimaraner",
 				 "Welsh Terrier"],
 	}
-]
+];
 
 
 function displayQuestion(){
@@ -417,16 +421,50 @@ function nextQuestion(){
 		displayQuestion();
 		handleAnswers();
 	}
-	else{
-		renderBreedMatches();
-		/*Create Score Table and assign to breeds*/
-		/*Show 5 Breed matches*/
-	}
+	else if (currentQuestion === 7){
+		$('form').on('submit',function(event){
+			event.preventDefault();
+			$(".js-quiz-section").addClass("hidden");
+			$(".js-wiki-section").removeClass("hidden");
+			$(".js-wiki-section").html(renderWiki(totalPoints, dogBreedMatch));
+
+			//hide quiz and rendered breeds(links..PetFinder API?) and wiki breed matches
+
+		})
+
 }
+
+//store desired fields from Wiki API
+var wikiFields={
+
+}
+
+//get Wikipedia data
+function getWikiDataFromApi(searchTerm, dogBreedMatch, callback){
+	const query= {
+	
+
+	};
+}
+
+
+
+function renderWiki(totalPoints, dogBreedMatch[]){
+	return `
+		<div class= "">
+
+		</div>
+	`;
+}
+
+
 
 function renderBreedMatches(){
-
+	// render html for 10 breed matches for score table
+	// $("")
+	// use Wiki Api to render html
 }
+
 
 
 function takeQuiz(){
