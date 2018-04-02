@@ -3,8 +3,14 @@
 let currentQuestion=0;
 let totalPoints=0;
 
-const WIKIPEDIA_SEARCH_URL = 'https://en.wikipedia.org/w/api.php';
+let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org//w/api.php?action=query&format=json&origin=*&prop=pageimages%7Cextracts&exintro=1&titles='
+let WIKIPEDIA_REFERENCE_URL="https://en.wikipedia.org/wiki/"
 const PETFINDER_SEARCH_URL = '';
+
+let wikiBreedName= [];
+let wikiBreedInfo= [];
+let wikiBreedImage=[];
+
 
 const questionBank= [
 	{
@@ -340,16 +346,16 @@ const dogBreedMatch= [
 				 "Black and Tan Coonhound",
 				 "Boxer",
 				 "Fox Terrier",
-				 "German Sheperd Dog"],
+				 "German Shepherd"],
 	},
 	//totalPoints= 21
 	{
-		breeds: ["Goldador",
+		breeds: ["German Shepherd",
 				 "Great Dane",
 				 "Irish Red and White Setter",
 				 "Jack Russell Terrier",
 				 "Labrador Retriever",
-				 "Pointer",
+				 "Pointer (dog breed)",
 				 "Puli",
 				 "Scottish Deerhound",
 				 "Weimaraner",
@@ -403,15 +409,12 @@ function generateQuestion(){
 function handleAnswers(){
 	$('form').on('submit',function(event){
 		event.preventDefault();
-		console.log('handleAnswers ran');
 		var selectedAnswer = $('input:checked').val();
-		console.log(selectedAnswer);
 		totalPoints += parseInt(selectedAnswer);
-		console.log("Total Points =" + totalPoints);
 		currentQuestion ++;
-		console.log("Current Question =" + currentQuestion);
 		nextQuestion();
 	})
+
 }
 
 function nextQuestion(){
@@ -422,49 +425,111 @@ function nextQuestion(){
 		handleAnswers();
 	}
 	else if (currentQuestion === 7){
-		$('form').on('submit',function(event){
-			event.preventDefault();
-			$(".js-quiz-section").addClass("hidden");
-			$(".js-wiki-section").removeClass("hidden");
-			$(".js-wiki-section").html(renderWiki(totalPoints, dogBreedMatch));
+			//hide quiz
+			$(".js-quiz-section").html("");
+			//take user score, find matching breeds, and store in variable
+			let userBreedMatches= dogBreedMatch[totalPoints].breeds;
+			callWikiAPI(userBreedMatches);
+			
+	}
+}
 
-			//hide quiz and rendered breeds(links..PetFinder API?) and wiki breed matches
+//function to call Wiki API
+function callWikiAPI (userBreedMatches){
 
-		})
+	for (let i=0; i < 10; i++){
+		let dogBreed = userBreedMatches[i]
+		console.log(dogBreed);
+		let url = WIKIPEDIA_SEARCH_URL + dogBreed;
+		$.getJSON(url, displayWiki);
+
+	}
 
 }
 
-//store desired fields from Wiki API
-var wikiFields={
 
-}
+//function displayWiki(userBreedMatches){
+  function displayWiki(data){
 
-//get Wikipedia data
-function getWikiDataFromApi(searchTerm, dogBreedMatch, callback){
-	const query= {
+	let page = data.query.pages;
+	let pageId= Object.keys(data.query.pages)[0];
+
+	wikiBreedName.push(page[pageId].title);
+	wikiBreedInfo.push(page[pageId].extract);
+	wikiBreedImage.push(page[pageId].thumbnail.source);
 	
 
-	};
+$(".js-wiki-section").html(renderWiki());
 }
 
-
-
-function renderWiki(totalPoints, dogBreedMatch[]){
+function renderWiki(){
 	return `
-		<div class= "">
-
+		<div class= "js-render-wiki">
+			<div class= "dog-breeds">
+				<div class= "dog-breed-1">
+					<h2>${wikiBreedName[0]}</h2>
+						<img src="${wikiBreedImage[0]}" class="wiki-photo" alt="${wikiBreedName[0]}">
+						<p>${wikiBreedInfo[0]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-2">
+					<h2>${wikiBreedName[1]}</h2>
+						<img src="${wikiBreedImage[1]}" class="wiki-photo" alt="${wikiBreedName[1]}">
+						<p>${wikiBreedInfo[1]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-3">
+					<h2>${wikiBreedName[2]}</h2>
+						<img src="${wikiBreedImage[2]}" class="wiki-photo" alt="${wikiBreedName[2]}">
+						<p>${wikiBreedInfo[2]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-4">
+					<h2>${wikiBreedName[3]}</h2>
+						<img src="${wikiBreedImage[3]}" class="wiki-photo" alt="${wikiBreedName[3]}">
+						<p>${wikiBreedInfo[3]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-5">
+					<h2>${wikiBreedName[4]}</h2>
+						<img src="${wikiBreedImage[4]}" class="wiki-photo" alt="${wikiBreedName[4]}">
+						<p>${wikiBreedInfo[4]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-6">
+					<h2>${wikiBreedName[5]}</h2>
+						<img src="${wikiBreedImage[5]}" class="wiki-photo" alt="${wikiBreedName[5]}">
+						<p>${wikiBreedInfo[5]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-7">
+					<h2>${wikiBreedName[6]}</h2>
+						<img src="${wikiBreedImage[6]}" class="wiki-photo" alt="${wikiBreedName[6]}">
+						<p>${wikiBreedInfo[6]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-8">
+					<h2>${wikiBreedName[7]}</h2>
+						<img src="${wikiBreedImage[7]}" class="wiki-photo" alt="${wikiBreedName[7]}">
+						<p>${wikiBreedInfo[7]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-9">
+					<h2>${wikiBreedName[8]}</h2>
+						<img src="${wikiBreedImage[8]}" class="wiki-photo" alt="${wikiBreedName[8]}">
+						<p>${wikiBreedInfo[8]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
+				</div>
+				<div class= "dog-breed-10">
+					<h2>${wikiBreedName[9]}</h2>
+						<img src="${wikiBreedImage[9]}" class="wiki-photo" alt="${wikiBreedName[9]}">
+						<p>${wikiBreedInfo[9]}</p>
+						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}">Read more on Wikipedia </a>	
+				</div>
+			</div>
 		</div>
 	`;
 }
-
-
-
-function renderBreedMatches(){
-	// render html for 10 breed matches for score table
-	// $("")
-	// use Wiki Api to render html
-}
-
 
 
 function takeQuiz(){
@@ -474,7 +539,6 @@ function takeQuiz(){
 
 	})
 }
-
 
 function startApp(){
 	console.log('startApp ran');
