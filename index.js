@@ -3,7 +3,7 @@
 let currentQuestion=0;
 let totalPoints=0;
 
-let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org//w/api.php?action=query&format=json&origin=*&prop=pageimages%7Cextracts&exintro=1&titles='
+let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org/w//api.php?action=query&format=json&origin=*&prop=extracts%7Cpageimages%7Cimages&exintro=1&piprop=original&titles='
 let WIKIPEDIA_REFERENCE_URL="https://en.wikipedia.org/wiki/"
 const PETFINDER_SEARCH_URL = '';
 
@@ -77,55 +77,55 @@ const dogBreedMatch= [
 	//totalPoints= 0
   {
 		breeds: ["Chow Chow",
-				 "Chinese Shar-Pei",
-				 "Chinese Crested",
+				 "Shar Pei",
+				 "Chinese Crested Dog",
 				 "Pekingese",
 				 "Basset Hound",
 				 "Japanese Chin",
 				 "Sussex Spaniel",
 				 "Borzoi",
-				 "Chihuahua",
-				 "Pomeranian"]	
+				 "Chihuahua (dog)",
+				 "Pomeranian (dog)"]	
     
   },
 	//totalPoints= 1
 	{
 		breeds: ["Chow Chow",
-				 "Chinese Shar-Pei",
-				 "Chinese Crested",
+				 "Shar Pei",
+				 "Chinese Crested Dog",
 				 "Pekingese",
 				 "Basset Hound",
 				 "Japanese Chin",
 				 "Sussex Spaniel",
 				 "Borzoi",
-				 "Chihuahua",
-				 "Pomeranian"]
+				 "Chihuahua (dog)",
+				 "Pomeranian (dog)"]
 	},
 	//totalPoints= 2
 	{
-		breeds: ["Pomeranian",
+		breeds: ["Pomeranian (dog)",
 				 "Shih Tzu",
-				 "Caucasian Sheperd Dog",
+				 "Caucasian Shepherd Dog",
 				 "Clumber Spaniel",
-				 "Saint Bernard",
+				 "St. Bernard (dog)",
 				 "Neapolitan Mastiff",
-				 "Newfoundland",
-				 "Maltese Shih Tzu",
+				 "Newfoundland dog",
+				 "Mal-shi",
 				 "Puggle",
 				 "Komondor"],
 	},
 	//totalPoints= 3
 	{
 		breeds: ["Dandie Dinmont Terrier",
-				 "English Toy Spaniel",
-				 "Maltese",
-				 "Maltipoo",
+				 "King Charles Spaniel",
+				 "Maltese dog",
 				 "Bulldog",
 				 "Collie",
-				 "Peekapoo",
-				 "Anatolian Sheperd Dog",
-				 "Mutt",
-				 "Xoloitzcuintli"],
+				 "Pekapoo",
+				 "Anatolian Shepherd",
+				 "Mongrel",
+				 "Mexican Hairless Dog",
+				 "Shiba Inu"],
 	},
 	//totalPoints= 4
 	{
@@ -136,22 +136,22 @@ const dogBreedMatch= [
 				 "Tibetan Mastiff",
 				 "Cesky Terrier",
 				 "Coton de Tulear",
-				 "Havanese",
+				 "Havanese dog",
 				 "Cardigan Welsh Corgi",
-				 "Chinook"],
+				 "Chinook (dog)"],
 	},
 	//totalPoints= 5
 	{
 		breeds: ["Dachshund",
 				 "Cocker Spaniel",
-				 "Pomsky",
+				 "Pomskies",
 				 "Pharaoh Hound",
-				 "Bolognese",
+				 "Bolognese dog",
 				 "Basenji",
 				 "French Bulldog",
 				 "Bullmastiff",
 				 "Cockapoo",
-				 "Doberman Pinscher"],
+				 "Dobermann"],
 	},
 	//totalPoints= 6
 	{
@@ -170,23 +170,23 @@ const dogBreedMatch= [
 	{
 		breeds: ["Shetland Sheepdog",
 				 "Cane Corso",
-				 "Catahoula Leopard Dog",
+				 "Catahoula Cur",
 				 "Pug",
 				 "American Staffordshire Terrier",
 				 "Bernedoodle",
 				 "Keeshond",
 				 "Lhasa Apso",
 				 "Lancashire Heeler",
-				 "Silky Terrier"],
+				 "Australian Silky Terrier"],
 	},
 	//totalPoints= 8
 	{
-		breeds: ["Barbet",
+		breeds: ["Barbet dog",
 				 "Yorkipoo",
 				 "Staffordshire Bull Terrier",
 				 "Boerboel",
 				 "Bedlington Terrier",
-				 "Dutch Sheperd",
+				 "Dutch Shepherd",
 				 "Old English Sheepdog",
 				 "Pembroke Welsh Corgi",
 				 "Polish Lowland Sheepdog",
@@ -198,11 +198,11 @@ const dogBreedMatch= [
 				 "Afghan Hound",
 				 "Bichon Frise",
 				 "Stabyhoun",
-				 "Akita",
-				 "Lowchen",
+				 "Akita (dog)",
+				 "Löwchen",
 				 "Miniature Pinscher",
 				 "Poodle",
-				 "Soft Coated Wheaten Terrier",
+				 "Soft-coated Wheaten Terrier",
 				 "American Bulldog"],
 	},
 	//totalPoints= 10
@@ -210,13 +210,13 @@ const dogBreedMatch= [
 		breeds: ["Briard",
 				 "Leonberger",
 				 "Manchester Terrier",
-				 "Pocket Beagle",
+				 "Pocket beagle",
 				 "Scottish Terrier",
 				 "West Highland White Terrier",
 				 "English Setter",
 				 "Black Mouth Cur",
 				 "Bracco Italiano",
-				 "Plott"],
+				 "Plott Hound"],
 	},
 	//totalPoints= 11
 	{
@@ -234,19 +234,19 @@ const dogBreedMatch= [
 	//totalPoints= 12
 	{
 		breeds: ["American Eskimo Dog",
-				 "Belgian Tervuren",
-				 "Brussels Griffon",
+				 "Tervuren dog",
+				 "Griffon Bruxellois",
 				 "Curly-Coated Retriever",
 				 "English Cocker Spaniel",
 				 "Wirehaired Pointing Griffon",
 				 "Lakeland Terrier",
 				 "Goldendoodle",
-				 "Papillon",
-				 "Appenzeller Sennenhunde"],
+				 "Papillon dog",
+				 "Appenzeller Sennenhund"],
 	},
 	//totalPoints= 13
 	{
-		breeds: ["Korean Jindo Dog",
+		breeds: ["Korean Jindo",
 				 "Kerry Blue Terrier",
 				 "Kuvasz",
 				 "American Water Spaniel",
@@ -254,7 +254,7 @@ const dogBreedMatch= [
 				 "Golden Retriever",
 				 "Gordon Setter",
 				 "Saluki",
-				 "Samoyed",
+				 "Samoyed dog",
 				 "Whippet"],
 	},
 	//totalPoints= 14
@@ -285,12 +285,12 @@ const dogBreedMatch= [
 	},
 	//totalPoints= 16
 	{
-		breeds: ["Small Munsterlander Pointer",
+		breeds: ["Small Münsterländer",
 				 "Airedale Terrier",
-				 "Belgian Sheepdog",
+				 "Belgian Shepherd",
 				 "Berger Picard",
 				 "Border Collie",
-				 "Brittany",
+				 "Brittany dog",
 				 "English Springer Spaniel",
 				 "Field Spaniel",
 				 "German Pinscher",
@@ -300,13 +300,13 @@ const dogBreedMatch= [
 	{
 		breeds: ["Ibizan Hound",
 				 "Irish Setter",
-				 "Nova Scotia Duck Trolling Retriever",
+				 "Nova Scotia Duck Tolling Retriever",
 				 "Portuguese Water Dog",
 				 "Schipperke",
 				 "Siberian Husky",
 				 "Standard Schnauzer",
 				 "Swedish Vallhund",
-				 "Dalmatian",
+				 "Dalmatian dog",
 				 "Welsh Springer Spaniel"],
 	},
 	//totalPoints= 18
@@ -314,10 +314,10 @@ const dogBreedMatch= [
 		breeds: ["Australian Terrier",
 				 "Finnish Lapphund",
 				 "Bull Terrier",
-				 "Pyrenean Sheperd",
+				 "Pyrenean Shepherd",
 				 "American Foxhound",
-				 "Australian Sheperd",
-				 "Belgian Malinois",
+				 "Australian Shepherd",
+				 "Malinois dog",
 				 "Bluetick Coonhound",
 				 "English Foxhound",
 				 "Entlebucher Mountain Dog"],
@@ -327,10 +327,10 @@ const dogBreedMatch= [
 		breeds: ["Finnish Spitz",
 				 "Flat-Coated Retriever",
 				 "German Wirehaired Pointer",
-				 "Harrier",
+				 "Harrier (dog)",
 				 "Labradoodle",
 				 "Otterhound",
-				 "Petit Basset Griffon Vendeen",
+				 "Petit Basset Griffon Vendéen",
 				 "Tibetan Terrier",
 				 "Toy Fox Terrier",
 				 "Vizsla"],
@@ -344,7 +344,7 @@ const dogBreedMatch= [
 				 "American English Coonhound",
 				 "Australian Cattle Dog",
 				 "Black and Tan Coonhound",
-				 "Boxer",
+				 "Boxer (dog)",
 				 "Fox Terrier",
 				 "German Shepherd"],
 	},
@@ -430,7 +430,8 @@ function nextQuestion(){
 			//take user score, find matching breeds, and store in variable
 			let userBreedMatches= dogBreedMatch[totalPoints].breeds;
 			callWikiAPI(userBreedMatches);
-			
+			console.log(wikiBreedImage);
+	
 	}
 }
 
@@ -450,14 +451,32 @@ function callWikiAPI (userBreedMatches){
 
 //function displayWiki(userBreedMatches){
   function displayWiki(data){
-
+  	console.log(data);
 	let page = data.query.pages;
 	let pageId= Object.keys(data.query.pages)[0];
 
 	wikiBreedName.push(page[pageId].title);
 	wikiBreedInfo.push(page[pageId].extract);
-	wikiBreedImage.push(page[pageId].thumbnail.source);
-	
+
+	if (pageId === "976970"){
+		wikiBreedImage.push("https://upload.wikimedia.org/wikipedia/commons/b/b4/Aigrette_Velikiy_%28Tsaluma_say_strazce_z_Tibetu_x_Legenda_Tibeta_vlastelin_kolets%29.jpg")
+	}
+	else if (pageId === "21693913"){
+		wikiBreedImage.push("https://i.pinimg.com/originals/20/fd/2b/20fd2bc6c63643dd7f0926aee84b6594.jpg")
+	}
+	else if (pageId ==="56981247"){
+		wikiBreedImage.push("https://static.igre123.net/korisniki-slike/velika_pomsky/v1_269856.jpg")
+	}
+	else if (pageId === "47472519"){
+		wikiBreedImage.push("https://www.bernedoodles.com/wp-content/uploads/Blizzard10Months.jpg")
+	}
+	else if (pageId === "14438863"){
+		wikiBreedImage.push("http://cdn2-www.dogtime.com/assets/uploads/gallery/pocket-beagle-dog-breed-pictures/threequartersleashed-7.jpg")
+	}
+	else {
+		wikiBreedImage.push(page[pageId].original.source)
+	}
+
 
 $(".js-wiki-section").html(renderWiki());
 }
