@@ -5,9 +5,10 @@ let totalPoints=0;
 
 let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org/w//api.php?action=query&format=json&origin=*&prop=extracts%7Cpageimages%7Cimages&exintro=1&piprop=original&titles='
 let WIKIPEDIA_REFERENCE_URL="https://en.wikipedia.org/wiki/"
-const PETFINDER_SEARCH_URL = '';
+let PETFINDER_SEARCH_URL = 'http://api.petfinder.com/pet.find?key=4ac3fe4007cf229375a357a8aeed3957&callback=?&animal=dog&count=5&pages=10&location=Los+Angeles+CA&output=full&format=json&breed=';
 
 let wikiBreedName= [];
+let petFinderBreedName= [];
 let wikiBreedInfo= [];
 let wikiBreedImage=[];
 
@@ -75,291 +76,995 @@ const questionBank= [
 
 const dogBreedMatch= [
 	//totalPoints= 0
-  {
-		breeds: ["Chow Chow",
-				 "Shar Pei",
-				 "Chinese Crested Dog",
-				 "Pekingese",
-				 "Basset Hound",
-				 "Japanese Chin",
-				 "Sussex Spaniel",
-				 "Borzoi",
-				 "Chihuahua (dog)",
-				 "Pomeranian (dog)"]	
+	{
+		breeds: [
+				{
+					wiki: "Chow Chow",
+					petFinder: "Chow Chow"
+				},
+				{
+					wiki: "Shar Pei",
+					petFinder: "Shar Pei"
+				},	
+				{
+					wiki: "Chinese Crested Dog",
+					petFinder: "Chinese Crested Dog"
+				},
+				{
+					wiki: "Pekingese",
+					petFinder: "Pekingese"
+				},
+				{
+					wiki: "Basset Hound",
+					petFinder: "Basset Hound"
+				},
+				{
+					wiki: "Japanese Chin",
+					petFinder: "Japanese Chin"
+				},
+				{
+					wiki: "Sussex Spaniel",
+					petFinder: "Sussex Spaniel"
+				},
+				{
+					wiki: "Borzoi",
+					petFinder: "Borzoi"
+				}, 
+				{
+					wiki: "Chihuahua (dog)",
+					petFinder: "Chihuahua"
+				}, 
+				{
+					wiki: "Pomeranian (dog)",
+					petFinder: "Pomeranian"
+				}
+				],	
     
-  },
+	},
 	//totalPoints= 1
 	{
-		breeds: ["Chow Chow",
-				 "Shar Pei",
-				 "Chinese Crested Dog",
-				 "Pekingese",
-				 "Basset Hound",
-				 "Japanese Chin",
-				 "Sussex Spaniel",
-				 "Borzoi",
-				 "Chihuahua (dog)",
-				 "Pomeranian (dog)"]
+		breeds: [
+				{
+					wiki: "Chow Chow",
+					petFinder: "Chow Chow"
+				},
+				{
+					wiki: "Shar Pei",
+					petFinder: "Shar Pei"
+				},	
+				{
+					wiki: "Chinese Crested Dog",
+					petFinder: "Chinese Crested Dog"
+				},
+				{
+					wiki: "Pekingese",
+					petFinder: "Pekingese"
+				},
+				{
+					wiki: "Basset Hound",
+					petFinder: "Basset Hound"
+				},
+				{
+					wiki: "Japanese Chin",
+					petFinder: "Japanese Chin"
+				},
+				{
+					wiki: "Sussex Spaniel",
+					petFinder: "Sussex Spaniel"
+				},
+				{
+					wiki: "Borzoi",
+					petFinder: "Borzoi"
+				}, 
+				{
+					wiki: "Chihuahua (dog)",
+					petFinder: "Chihuahua"
+				}, 
+				{
+					wiki: "Pomeranian (dog)",
+					petFinder: "Pomeranian"
+				}
+				],
 	},
 	//totalPoints= 2
 	{
-		breeds: ["Pomeranian (dog)",
-				 "Shih Tzu",
-				 "Caucasian Shepherd Dog",
-				 "Clumber Spaniel",
-				 "St. Bernard (dog)",
-				 "Neapolitan Mastiff",
-				 "Newfoundland dog",
-				 "Mal-shi",
-				 "Puggle",
-				 "Komondor"],
+		breeds: [
+				{
+					wiki: "Pomeranian (dog)",
+					petFinder: "Pomeranian"
+				},
+				{
+					wiki: "Shih Tzu", 
+					petFinder: "Shih Tzu"
+				},
+				{
+					wiki: "Caucasian Shepherd Dog",
+					petFinder: "Caucasian Sheepdog / Caucasian Ovtcharka" 
+				},
+				{
+					wiki: "Clumber Spaniel",
+					petFinder: "Clumber Spaniel" 
+				},
+				{
+					wiki: "St. Bernard (dog)",
+					petFinder: "Saint Bernard / St. Bernard"
+				},
+				{
+					wiki: "Neapolitan Mastiff",
+					petFinder: "Neapolitan Mastiff" 
+				},
+				{
+					wiki: "Newfoundland dog",
+					petFinder: "Newfoundland Dog" 
+				},
+				{
+					wiki: "Maltese dog",
+					petFinder: "Maltese"
+				},
+				{
+					wiki: "Komondor",
+					petFinder: "Komondor"
+				},
+				{
+					wiki: "Dandie Dinmont Terrier",
+					petFinder: "Dandi Dinmont Terrier"
+				} 
+				],
 	},
 	//totalPoints= 3
 	{
-		breeds: ["Dandie Dinmont Terrier",
-				 "King Charles Spaniel",
-				 "Maltese dog",
-				 "Bulldog",
-				 "Collie",
-				 "Pekapoo",
-				 "Anatolian Shepherd",
-				 "Mongrel",
-				 "Mexican Hairless Dog",
-				 "Shiba Inu"],
+		breeds: [
+				{
+					wiki: "Dandie Dinmont Terrier",
+					petFinder: "Dandi Dinmont Terrier"
+				},
+				{
+					wiki:"King Charles Spaniel",
+					petFinder: "English Toy Spaniel" 
+				}, 
+				{
+					wiki: "Maltese dog",
+					petFinder: "Maltese"
+				},
+				{
+					wiki: "Bulldog",
+					petFinder: "English Bulldog"
+				},
+				{
+					wiki: "Collie",
+					petFinder: "Collie" 
+				},
+				{
+					wiki: "Anatolian Shepherd",
+					petFinder: "Anatolian Shepherd" 
+				},
+				{
+					wiki: "Mexican Hairless Dog",
+					petFinder: "Xoloitzcuintle / Mexican Hairless"
+				},
+				{
+					wiki: "Shiba Inu",
+					petFinder: "Shiba Inu" 
+				},
+				{
+					wiki: "Irish Wolfhound",
+					petFinder: "Irish Wolfhound" 
+				},
+				{
+					wiki: "Dogue de Bordeaux",
+					petFinder: "Dogue de Bordeaux" 
+				}
+				],
 	},
 	//totalPoints= 4
 	{
-		breeds: ["Shiba Inu",
-				 "Irish Wolfhound",
-				 "Azawakh",
-				 "Dogue de Bordeaux",
-				 "Tibetan Mastiff",
-				 "Cesky Terrier",
-				 "Coton de Tulear",
-				 "Havanese dog",
-				 "Cardigan Welsh Corgi",
-				 "Chinook (dog)"],
+		breeds: [
+				{
+					wiki: "Shiba Inu",
+					petFinder: "Shiba Inu" 
+				},
+				{
+					wiki: "Irish Wolfhound",
+					petFinder: "Irish Wolfhound" 
+				},
+				{
+					wiki: "Dogue de Bordeaux",
+					petFinder: "Dogue de Bordeaux" 
+				},
+				{
+					wiki: "Tibetan Mastiff",
+					petFinder: "Tibetan Mastiff" 
+				},
+				{
+					wiki: "Coton de Tulear",
+					petFinder: "Coton de Tulear"
+				},
+				{
+					wiki: "Havanese dog",
+					petFinder: "Havanese"
+				}, 
+				{
+					wiki: "Cardigan Welsh Corgi",
+					petFinder: "Corgi"
+				},
+				{
+					wiki: "Chinook (dog)",
+					petFinder: "Chinook"
+				},
+				{
+					wiki: "Dachshund",
+					petFinder: "Dachshund"
+				},
+				{
+					wiki: "Cocker Spaniel",
+					petFinder: "Cocker Spaniel"
+				}
+				],
 	},
 	//totalPoints= 5
 	{
-		breeds: ["Dachshund",
-				 "Cocker Spaniel",
-				 "Pomskies",
-				 "Pharaoh Hound",
-				 "Bolognese dog",
-				 "Basenji",
-				 "French Bulldog",
-				 "Bullmastiff",
-				 "Cockapoo",
-				 "Dobermann"],
+		breeds: [
+				{
+					wiki: "Dachshund",
+					petFinder: "Dachshund"
+				},
+				{
+					wiki: "Cocker Spaniel",
+					petFinder: "Cocker Spaniel"
+				},
+				{
+					wiki: "Pharaoh Hound",
+					petFinder: "Pharaoh Hound"
+				},
+				{
+					wiki: "Bolognese dog",
+					petFinder: "Bolognese"
+				}, 
+				{
+					wiki: "Basenji",
+					petFinder: "Basenji" 
+				},
+				{
+					wiki: "French Bulldog",
+					petFinder: "French Bulldog"
+				},
+				{
+					wiki: "Bullmastiff",
+					petFinder: "Bullmastiff" 
+				},
+				{
+					wiki: "Cockapoo",
+					petFinder: "Cockapoo"
+				},
+				{
+					wiki: "Dobermann",
+					petFinder: "Doberman Pinscher"
+				},
+				{
+					wiki: "Skye Terrier",
+					petFinder: "Skye Terrier" 
+				} 
+				],
 	},
 	//totalPoints= 6
 	{
-		breeds: ["Skye Terrier",
-				 "Affenpinscher",
-				 "Bernese Mountain Dog",
-				 "Canaan Dog",
-				 "Cavalier King Charles Spaniel",
-				 "Mastiff",
-				 "Tibetan Spaniel",
-				 "Alaskan Klee Kai",
-				 "Italian Greyhound",
-				 "Sealyham Terrier"],
+		breeds: [
+				{
+					wiki: "Skye Terrier",
+					petFinder: "Skye Terrier" 
+				}, 
+				{
+					wiki: "Affenpinscher",
+					petFinder: "Affenpinscher"
+				},
+				{
+					wiki: "Bernese Mountain Dog",
+					petFinder: "Bernese Mountain Dog"
+				},
+				{
+					wiki: "Canaan Dog",
+					petFinder: "Canaan Dog"
+				},
+				{
+					wiki: "Cavalier King Charles Spaniel",
+					petFinder: "Cavalier King Charles Spaniel"
+				},
+				{
+					wiki: "Mastiff",
+					petFinder: "Mastiff"
+				},
+				{
+					wiki: "Tibetan Spaniel",
+					petFinder: "Tibetan Spaniel"
+				},
+				{
+					wiki: "Alaskan Klee Kai",
+					petFinder: "Klee Kai"
+				},
+				{
+					wiki: "Italian Greyhound",
+					petFinder: "Italian Greyhound"
+				}, 
+				{
+					wiki: "Sealyham Terrier",
+					petFinder: "Sealyham Terrier"
+				} 
+				],
 	},
 	//totalPoints= 7
 	{
-		breeds: ["Shetland Sheepdog",
-				 "Cane Corso",
-				 "Catahoula Cur",
-				 "Pug",
-				 "American Staffordshire Terrier",
-				 "Bernedoodle",
-				 "Keeshond",
-				 "Lhasa Apso",
-				 "Lancashire Heeler",
-				 "Australian Silky Terrier"],
+		breeds: [
+				{
+					wiki: "Shetland Sheepdog",
+					petFinder: "Shetland Sheepdog Sheltie" 
+				},
+				{
+					wiki: "Cane Corso",
+					petFinder: "Cane Corso Mastiff"
+				},
+				{
+					wiki: "Catahoula Cur",
+					petFinder: "Catahoula Leopard Dog"
+				},
+				{
+					wiki: "Pug",
+					petFinder: "Pug"
+				},
+				{
+					wiki: "American Staffordshire Terrier",
+					petFinder: "American Staffordshire Terrier"
+				},
+				{
+					wiki: "Keeshond",
+					petFinder: "Keeshond"
+				},				 
+				{
+					wiki: "Lhasa Apso",
+					petFinder: "Lhasa Apso"
+				},
+				{
+					wiki: "Lancashire Heeler",
+					petFinder: "Lancashire Heeler"
+				},
+				{
+					wiki: "Australian Silky Terrier",
+					petFinder: "Silky Terrier"  
+				},
+				{
+					wiki: "Staffordshire Bull Terrier",
+					petFinder: "Staffordshire Bull Terrier" 
+				}
+				],
 	},
 	//totalPoints= 8
 	{
-		breeds: ["Barbet dog",
-				 "Yorkipoo",
-				 "Staffordshire Bull Terrier",
-				 "Boerboel",
-				 "Bedlington Terrier",
-				 "Dutch Shepherd",
-				 "Old English Sheepdog",
-				 "Pembroke Welsh Corgi",
-				 "Polish Lowland Sheepdog",
-				 "Schnoodle"],
+		breeds: [
+				{
+					wiki: "Staffordshire Bull Terrier",
+					petFinder: "Staffordshire Bull Terrier" 
+				},
+				{
+					wiki: "Boerboel",
+					petFinder: "Boerboel"
+				}, 
+				{
+					wiki: "Bedlington Terrier",
+					petFinder: "Bedlington Terrier"
+				},
+				{
+					wiki: "Dutch Shepherd",
+					petFinder: "Dutch Shepherd"
+				},
+				{
+					wiki: "Old English Sheepdog",
+					petFinder: "Old English Sheepdog"  
+				},
+				{
+					wiki: "Pembroke Welsh Corgi",
+					petFinder: "Corgi"
+				},
+				{
+					wiki: "Polish Lowland Sheepdog",
+					petFinder: "Polish Lowland Sheepdog"
+				},
+				{
+					wiki: "Dogo Argentino",
+					petFinder: "Dogo Argentino"
+				},
+				{
+					wiki: "Afghan Hound",
+					petFinder: "Afghan Hound"
+				},
+				{
+					wiki: "Bichon Frise",
+					petFinder: "Bichon Frise" 
+				}
+				],
 	},
 	//totalPoints= 9
 	{
-		breeds: ["Dogo Argentino",
-				 "Afghan Hound",
-				 "Bichon Frise",
-				 "Stabyhoun",
-				 "Akita (dog)",
-				 "Löwchen",
-				 "Miniature Pinscher",
-				 "Poodle",
-				 "Soft-coated Wheaten Terrier",
-				 "American Bulldog"],
+		breeds: [
+				{
+					wiki: "Dogo Argentino",
+					petFinder: "Dogo Argentino"
+				},
+				{
+					wiki: "Afghan Hound",
+					petFinder: "Afghan Hound"
+				},
+				{
+					wiki: "Bichon Frise",
+					petFinder: "Bichon Frise" 
+				},
+				{
+					wiki: "Akita (dog)",
+					petFinder: "Akita"
+				},
+				{
+					wiki: "Löwchen",
+					petFinder: "Lowchen" 
+				}, 
+				{
+					wiki: "Miniature Pinscher",
+					petFinder: "Miniature Pinscher"
+				},
+				{
+					wiki: "Poodle",
+					petFinder: "Poodle"
+				},
+				{
+					wiki: "Soft-coated Wheaten Terrier",
+					petFinder: "Wheaten Terrier" 
+				},
+				{
+					wiki: "American Bulldog",
+					petFinder: "American Bulldog" 
+				},
+				{
+					wiki:"Briard",
+					petFinder: "Briard"
+				}
+				],
 	},
 	//totalPoints= 10
 	{
-		breeds: ["Briard",
-				 "Leonberger",
-				 "Manchester Terrier",
-				 "Pocket beagle",
-				 "Scottish Terrier",
-				 "West Highland White Terrier",
-				 "English Setter",
-				 "Black Mouth Cur",
-				 "Bracco Italiano",
-				 "Plott Hound"],
+		breeds: [
+				{
+					wiki:"Briard",
+					petFinder: "Briard"
+				},
+				{
+					wiki: "Leonberger",
+					petFinder: "Leonberger"
+				},
+				{
+					wiki: "Manchester Terrier",
+					petFinder: "Manchester Terrier" 
+				},
+				{
+					wiki: "Scottish Terrier",
+					petFinder: "Scottish Terrier Scottie"
+				},
+				{
+					wiki: "West Highland White Terrier",
+					petFinder: "West Highland White Terrier Westie"
+				},
+				{
+					wiki: "English Setter",
+					petFinder: "English Setter"
+				},
+				{
+					wiki: "Black Mouth Cur",
+					petFinder: "Black Mouth Cur" 
+				},
+				{
+					wiki: "Spinone Italiano",
+					petFinder: "Italian Spinone"  
+				},
+				{
+					wiki: "Plott Hound",
+					petFinder: "Plott Hound"
+				},
+				{
+					wiki: "Treeing Walker Coonhound",
+					petFinder: "Treeing Walker Coonhound"
+				}
+				],
 	},
 	//totalPoints= 11
 	{
-		breeds: ["Treeing Tennessee Brindle",
-				 "Treeing Walker Coonhound",
-				 "Sloughi",
-				 "Greater Swiss Mountain Dog",
-				 "Bearded Collie",
-				 "Norfolk Terrier",
-				 "Rottweiler",
-				 "Bouvier des Flandres",
-				 "Glen of Imaal Terrier",
-				 "Icelandic Sheepdog"],
+		breeds: [
+				{
+					wiki: "Treeing Walker Coonhound",
+					petFinder: "Treeing Walker Coonhound"
+				}, 
+				{
+					wiki: "Sloughi",
+					petFinder: "Sloughi" 
+				},
+				{
+					wiki: "Greater Swiss Mountain Dog",
+					petFinder: "Greater Swiss Mountain Dog"
+ 				},
+ 				{
+ 					wiki: "Bearded Collie",
+ 					petFinder: "Bearded Collie"
+ 				},
+ 				{
+ 					wiki: "Norfolk Terrier",
+ 					petFinder: "Norfolk Terrier"
+ 				},
+ 				{
+ 					wiki: "Rottweiler",
+ 					petFinder: "Rottweiler"
+ 				},
+ 				{
+ 					wiki: "Bouvier des Flandres",
+ 					petFinder: "Bouvier des Flanders"
+ 				},
+ 				{
+ 					wiki:"Glen of Imaal Terrier",
+ 					petFinder: "Glen of Imaal Terrier"
+ 				},
+ 				{
+ 					wiki: "Icelandic Sheepdog",
+ 					petFinder: "Icelandic Sheepdog"
+ 				},
+				{
+					wiki: "American Eskimo Dog",
+					petFinder: "American Eskimo Dog"
+				} 
+				],
 	},
 	//totalPoints= 12
 	{
-		breeds: ["American Eskimo Dog",
-				 "Tervuren dog",
-				 "Griffon Bruxellois",
-				 "Curly-Coated Retriever",
-				 "English Cocker Spaniel",
-				 "Wirehaired Pointing Griffon",
-				 "Lakeland Terrier",
-				 "Goldendoodle",
-				 "Papillon dog",
-				 "Appenzeller Sennenhund"],
+		breeds: [
+				{
+					wiki: "American Eskimo Dog",
+					petFinder: "American Eskimo Dog"
+				},
+				{
+					wiki: "Tervuren dog",
+					petFinder: "Belgian Shepherd / Tervuren"
+				},
+				{
+					wiki: "Griffon Bruxellois",
+					petFinder: "Brussels Griffon"  
+				}, 
+				{
+					wiki: "Curly-Coated Retriever",
+					petFinder: "Curly-Coated Retriever" 
+				},
+				{
+					wiki: "English Cocker Spaniel",
+					petFinder: "English Cocker Spaniel"
+				},
+				{
+					wiki: "Wirehaired Pointing Griffon",
+					petFinder: "Wirehaired Pointing Griffon"
+				},
+				{
+					wiki: "Lakeland Terrier",
+					petFinder: "Lakeland Terrier"
+				},
+				{
+					wiki: "Papillon dog",
+					petFinder: "Papillon"
+				},
+				{
+					wiki: "Appenzeller Sennenhund",
+					petFinder: "Appenzell Mountain Dog"
+				},				 
+				{
+					wiki: "Korean Jindo",
+					petFinder: "Jindo" 
+				}
+				],
 	},
 	//totalPoints= 13
 	{
-		breeds: ["Korean Jindo",
-				 "Kerry Blue Terrier",
-				 "Kuvasz",
-				 "American Water Spaniel",
-				 "Giant Schnauzer",
-				 "Golden Retriever",
-				 "Gordon Setter",
-				 "Saluki",
-				 "Samoyed dog",
-				 "Whippet"],
+		breeds: [
+				{
+					wiki: "Korean Jindo",
+					petFinder: "Jindo" 
+				},
+				{
+					wiki: "Kerry Blue Terrier",
+					petFinder: "Kerry Blue Terrier"
+				},
+				{
+					wiki: "Kuvasz",
+					petFinder: "Kuvasz"
+				},
+				{
+					wiki: "American Water Spaniel",
+					petFinder: "American Water Spaniel" 
+				},
+				{
+					wiki: "Giant Schnauzer",
+					petFinder: "Giant Schnauzer"
+				},
+				{
+					wiki: "Golden Retriever",
+					petFinder: "Golden Retriever" 
+				},
+				{
+					wiki: "Gordon Setter",
+					petFinder: "Gordon Setter"
+				},
+				{
+					wiki: "Saluki",
+					petFinder: "Saluki"
+				},
+				{
+					wiki: "Samoyed dog",
+					petFinder: "Samoyed"  
+				},
+				{
+					wiki: "Whippet",
+					petFinder: "Whippet"
+				} 
+				],
 	},
 	//totalPoints= 14
 	{
-		breeds: ["Greyhound",
-				 "Irish Water Spaniel",
-				 "Miniature Schnauzer",
-				 "Norwegian Elkhound",
-				 "Bloodhound",
-				 "American Pit Bull Terrier",
-				 "Beagle",
-				 "Black Russian Terrier",
-				 "Boston Terrier",
-				 "Cairn Terrier"],
+		breeds: [
+				{
+					wiki: "Greyhound",
+					petFinder: "Greyhound"
+				},
+				{
+					wiki: "Irish Water Spaniel",
+					petFinder: "Irish Water Spaniel"
+				},
+				{
+					wiki: "Miniature Schnauzer",
+					petFinder: "Miniature Schnauzer" 
+				},
+				{
+					wiki: "Norwegian Elkhound",
+					petFinder: "Norwegian Elkhound" 
+				}, 
+				{
+					wiki: "Bloodhound",
+					petFinder: "Bloodhound" 
+				}, 
+				{
+					wiki: "American Pit Bull Terrier",
+					petFinder: "Pit Bull Terrier"
+				}, 
+				{
+					wiki: "Beagle",
+					petFinder: "Beagle" 
+				},
+				{
+					wiki: "Black Russian Terrier",
+					petFinder: "Black Russian Terrier" 
+				}, 
+				{
+					wiki: "Boston Terrier",
+					petFinder: "Boston Terrier" 
+				}, 
+				{
+					wiki: "Cairn Terrier",
+					petFinder: "Cairn Terrier" 
+				} 
+				],
 	},
 	//totalPoints= 15
 	{
-		breeds: ["Irish Terrier",
-				 "Norwich Terrier",
-				 "Rat Terrier",
-				 "Yorkshire Terrier",
-				 "Border Terrier",
-				 "Norwegian Buhund",
-				 "Norwegian Lundehund",
-				 "Redbone Coonhound",
-				 "Rhodesian Ridgeback",
-				 "Kooikerhondje"],
+		breeds: [
+				{
+					wiki: "Irish Terrier",
+					petFinder: "Irish Terrier" 
+				},	
+				{
+					wiki: "Norwich Terrier",
+					petFinder: "Norwich Terrier" 
+				},
+				{
+					wiki: "Rat Terrier",
+					petFinder: "Rat Terrier"  
+				},
+				{
+					wiki: "Yorkshire Terrier",
+					petFinder: "Yorkshire Terrier Yorkie" 
+				},
+				{
+					wiki: "Border Terrier",
+					petFinder: "Border Terrier" 
+				}, 
+				{
+					wiki: "Norwegian Buhund",
+					petFinder: "Norwegian Buhund" 
+				}, 
+				{
+					wiki: "Norwegian Lundehund",
+					petFinder: "Norwegian Lundehund" 
+				},
+				{
+					wiki: "Redbone Coonhound",
+					petFinder: "Redbone Coonhound"
+				}, 
+				{
+					wiki: "Rhodesian Ridgeback",
+					petFinder: "Rhodesian Ridgeback"
+				}, 
+				{
+					wiki: "Small Münsterländer",
+					petFinder: "Munsterlander"
+				}
+				],
 	},
 	//totalPoints= 16
 	{
-		breeds: ["Small Münsterländer",
-				 "Airedale Terrier",
-				 "Belgian Shepherd",
-				 "Berger Picard",
-				 "Border Collie",
-				 "Brittany dog",
-				 "English Springer Spaniel",
-				 "Field Spaniel",
-				 "German Pinscher",
-				 "German Shorthaired Pointer"],
+		breeds: [
+				{
+					wiki: "Small Münsterländer",
+					petFinder: "Munsterlander"
+				},
+				{
+					wiki: "Airedale Terrier",
+					petFinder: "Airedale Terrier"
+				},
+				{
+					wiki: "Belgian Shepherd",
+					petFinder: "Belgian Shepherd / Sheepdog"
+				},
+				{
+					wiki: "Border Collie",
+					petFinder: "Border Collie"
+				},
+				{
+					wiki: "Brittany dog",
+					petFinder: "Brittany Spaniel" 
+				},
+				{
+					wiki: "English Springer Spaniel",
+					petFinder: "English Springer Spaniel"
+				},
+				{
+					wiki: "Field Spaniel",
+					petFinder: "Field Spaniel"
+				},
+				{
+					wiki:"German Pinscher",
+					petFinder: "German Pinscher"
+				},
+				{
+					wiki: "German Shorthaired Pointer",
+					petFinder: "German Shorthaired Pointer"  
+				},
+				{
+					wiki: "Ibizan Hound",
+					petFinder: "Ibizan Hound"
+				} 
+				],
 	},
 	//totalPoints= 17
 	{
-		breeds: ["Ibizan Hound",
-				 "Irish Setter",
-				 "Nova Scotia Duck Tolling Retriever",
-				 "Portuguese Water Dog",
-				 "Schipperke",
-				 "Siberian Husky",
-				 "Standard Schnauzer",
-				 "Swedish Vallhund",
-				 "Dalmatian dog",
-				 "Welsh Springer Spaniel"],
+		breeds: [
+				{
+					wiki: "Ibizan Hound",
+					petFinder: "Ibizan Hound"
+				},
+				{
+					wiki: "Irish Setter",
+					petFinder: "Irish Setter" 
+				}, 
+				{
+					wiki: "Nova Scotia Duck Tolling Retriever",
+					petFinder: "Nova Scotia Duck Tolling Retriever" 
+				},
+				{
+					wiki: "Portuguese Water Dog",
+					petFinder: "Portuguese Water Dog" 
+				},
+				{
+					wiki: "Schipperke",
+					petFinder: "Schipperke" 
+				},
+				{
+					wiki: "Siberian Husky",
+					petFinder: "Siberian Husky" 
+				},
+				{
+					wiki: "Standard Schnauzer",
+					petFinder: "Standard Schnauzer" 
+				},
+				{
+					wiki: "Swedish Vallhund",
+					petFinder: "Swedish Vallhund"
+				},
+				{
+					wiki: "Dalmatian dog",
+					petFinder: "Dalmatian"
+				},
+				{	
+					wiki: "Welsh Springer Spaniel",
+					petFinder: "Welsh Springer Spaniel"
+				}	
+				],
 	},
 	//totalPoints= 18
 	{
-		breeds: ["Australian Terrier",
-				 "Finnish Lapphund",
-				 "Bull Terrier",
-				 "Pyrenean Shepherd",
-				 "American Foxhound",
-				 "Australian Shepherd",
-				 "Malinois dog",
-				 "Bluetick Coonhound",
-				 "English Foxhound",
-				 "Entlebucher Mountain Dog"],
+		breeds: [
+				{
+					wiki: "Australian Terrier",
+					petFinder: "Australian Terrier" 
+				},
+				{
+					wiki: "Finnish Lapphund",
+					petFinder: "Finnish Lapphund" 
+				},
+				{
+					wiki: "Bull Terrier",
+					petFinder: "Bull Terrier"
+				},
+				{
+					wiki: "American Foxhound",
+					petFinder: "Foxhound"
+				},
+				{
+					wiki: "Australian Shepherd",
+					petFinder: "Australian Shepherd"
+				},
+				{
+					wiki: "Malinois dog",
+					petFinder: "Belgian Shepherd / Malinois"
+ 				},
+ 				{
+ 					wiki: "Bluetick Coonhound",
+ 					petFinder: "Bluetick Coonhound"
+ 				},
+ 				{
+ 					wiki: "English Foxhound",
+ 					petFinder: "Foxhound"
+ 				},
+				{
+					wiki: "Entlebucher Mountain Dog",
+					petFinder: "Entlebucher" 
+				}, 
+				{
+					wiki: "Finnish Spitz",
+					petFinder: "Finnish Spitz" 
+				}
+				],
 	},
 	//totalPoints= 19
 	{
-		breeds: ["Finnish Spitz",
-				 "Flat-Coated Retriever",
-				 "German Wirehaired Pointer",
-				 "Harrier (dog)",
-				 "Labradoodle",
-				 "Otterhound",
-				 "Petit Basset Griffon Vendéen",
-				 "Tibetan Terrier",
-				 "Toy Fox Terrier",
-				 "Vizsla"],
+		breeds: [
+				{
+					wiki: "Finnish Spitz",
+					petFinder: "Finnish Spitz" 
+				},
+				{
+					wiki: "Flat-Coated Retriever",
+					petFinder: "Flat-Coated Retriever" 
+				},
+				{
+					wiki: "German Wirehaired Pointer",
+					petFinder: "German Wirehaired Pointer"
+				}, 
+				{
+					wiki: "Harrier (dog)",
+					petFinder: "Harrier"
+				},
+				{
+					wiki: "Otterhound",
+					petFinder: "Otterhound"
+				},
+				{
+					wiki: "Petit Basset Griffon Vendéen",
+					petFinder: "Petit Basset Griffon Vendeen"
+				},
+				{
+					wiki: "Tibetan Terrier",
+					petFinder: "Tibetan Terrier" 
+				}, 
+				{
+					wiki: "Toy Fox Terrier",
+					petFinder: "Toy Fox Terrier" 
+				}, 
+				{
+					wiki: "Vizsla",
+					petFinder: "Vizsla"
+				},
+				{
+					wiki: "Boykin Spaniel",
+					petFinder: "Boykin Spaniel"
+				}  
+				],
 	},
 	//totalPoints= 20
 	{
-		breeds: ["Boykin Spaniel",
-				 "Chesapeake Bay Retriever",
-				 "Great Pyrenees",
-				 "Alaskan Malamute",
-				 "American English Coonhound",
-				 "Australian Cattle Dog",
-				 "Black and Tan Coonhound",
-				 "Boxer (dog)",
-				 "Fox Terrier",
-				 "German Shepherd"],
+		breeds: [
+				{
+					wiki: "Boykin Spaniel",
+					petFinder: "Boykin Spaniel"
+				}, 
+				{
+					wiki: "Chesapeake Bay Retriever",
+					petFinder: "Chesapeake Bay Retriever"
+				},				
+				{
+					wiki: "Great Pyrenees",
+					petFinder: "Great Pyrenees"
+				},
+				{
+					wiki: "Alaskan Malamute",
+					petFinder: "Alaskan Malamute" 
+				}, 
+				{
+					wiki: "American English Coonhound",
+					petFinder: "English Coonhound"
+				},
+				{
+					wiki: "Australian Cattle Dog",
+					petFinder: "Australian Cattle Dog / Blue Heeler" 
+				},
+				{
+					wiki: "Black and Tan Coonhound",
+					petFinder: "Black and Tan Coonhound"
+				},
+				{
+					wiki: "Boxer (dog)",
+					petFinder: "Boxer" 	
+				},
+				{
+					wiki: "Fox Terrier",
+					petFinder: "Fox Terrier"
+				},
+				{
+					wiki: "German Shepherd",
+					petFinder: "German Shepherd Dog" 
+				}  
+				],
 	},
 	//totalPoints= 21
 	{
-		breeds: ["German Shepherd",
-				 "Great Dane",
-				 "Irish Red and White Setter",
-				 "Jack Russell Terrier",
-				 "Labrador Retriever",
-				 "Pointer (dog breed)",
-				 "Puli",
-				 "Scottish Deerhound",
-				 "Weimaraner",
-				 "Welsh Terrier"],
+		breeds: [
+				{
+					wiki: "German Shepherd",
+					petFinder: "German Shepherd Dog"
+				},
+				{
+					wiki: "Great Dane",
+					petFinder: "Great Dane"
+				},
+				{
+					wiki: "Irish Red and White Setter",
+					petFinder: "Irish Setter"	
+				},
+				{
+					wiki: "Jack Russell Terrier",
+					petFinder: "Jack Russell Terrier"
+				}, 
+				{
+					wiki: "Labrador Retriever",
+					petFinder: "Labrador Retriever"
+				},
+				{
+					wiki: "Pointer (dog breed)",
+					petFinder:"Pointer"
+				}, 
+				{
+					wiki: "Puli",
+					petFinder: "Puli"
+				}, 
+				{
+					wiki: "Scottish Deerhound",
+					petFinder: "Scottish Deerhound"
+				}, 
+				{
+					wiki: "Weimaraner",
+					petFinder: "Weimaraner"
+				},
+				{
+					wiki: "Welsh Terrier",
+					petFinder: "Welsh Terrier"
+				}
+				],
 	}
 ];
 
@@ -430,7 +1135,7 @@ function nextQuestion(){
 			//take user score, find matching breeds, and store in variable
 			let userBreedMatches= dogBreedMatch[totalPoints].breeds;
 			callWikiAPI(userBreedMatches);
-			console.log(wikiBreedImage);
+		
 	
 	}
 }
@@ -439,19 +1144,23 @@ function nextQuestion(){
 function callWikiAPI (userBreedMatches){
 
 	for (let i=0; i < 10; i++){
-		let dogBreed = userBreedMatches[i]
+		let dogBreed = userBreedMatches[i].wiki;
+		petFinderBreedName.push(userBreedMatches[i].petFinder);
 		console.log(dogBreed);
 		let url = WIKIPEDIA_SEARCH_URL + dogBreed;
 		$.getJSON(url, displayWiki);
-
 	}
 
 }
 
+//UPDATE BREED NAME OBJECT NAMES
+//UPDATE ALL FUNCTIONS TO PULL CORRECT LOCATION/NAME
+//UPDATE RENDER WIKI TO GRAB PETFINDER NAMES
+
 
 //function displayWiki(userBreedMatches){
   function displayWiki(data){
-  	console.log(data);
+  	//console.log(data);
 	let page = data.query.pages;
 	let pageId= Object.keys(data.query.pages)[0];
 
@@ -464,84 +1173,78 @@ function callWikiAPI (userBreedMatches){
 	else if (pageId === "21693913"){
 		wikiBreedImage.push("https://i.pinimg.com/originals/20/fd/2b/20fd2bc6c63643dd7f0926aee84b6594.jpg")
 	}
-	else if (pageId ==="56981247"){
-		wikiBreedImage.push("https://static.igre123.net/korisniki-slike/velika_pomsky/v1_269856.jpg")
-	}
-	else if (pageId === "47472519"){
-		wikiBreedImage.push("https://www.bernedoodles.com/wp-content/uploads/Blizzard10Months.jpg")
-	}
-	else if (pageId === "14438863"){
-		wikiBreedImage.push("http://cdn2-www.dogtime.com/assets/uploads/gallery/pocket-beagle-dog-breed-pictures/threequartersleashed-7.jpg")
-	}
 	else {
 		wikiBreedImage.push(page[pageId].original.source)
 	}
 
-
 $(".js-wiki-section").html(renderWiki());
+
+callPetFinderAPI(wikiBreedName);
+
+
 }
 
 function renderWiki(){
 	return `
 		<div class= "js-render-wiki">
 			<div class= "dog-breeds">
-				<div class= "dog-breed-1">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[0]}">
 					<h2>${wikiBreedName[0]}</h2>
-						<img src="${wikiBreedImage[0]}" class="wiki-photo" alt="${wikiBreedName[0]}">
+						<img src="${wikiBreedImage[0]}" id="wiki-photo" alt="${wikiBreedName[0]}">
 						<p>${wikiBreedInfo[0]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-2">
+				<div class="pet-lookup" data-breed="${wikiBreedName[1]}">
 					<h2>${wikiBreedName[1]}</h2>
-						<img src="${wikiBreedImage[1]}" class="wiki-photo" alt="${wikiBreedName[1]}">
+						<img src="${wikiBreedImage[1]}" id="wiki-photo" alt="${wikiBreedName[1]}">
 						<p>${wikiBreedInfo[1]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-3">
+				<div class="pet-lookup" data-breed="${wikiBreedName[2]}">
 					<h2>${wikiBreedName[2]}</h2>
-						<img src="${wikiBreedImage[2]}" class="wiki-photo" alt="${wikiBreedName[2]}">
+						<img src="${wikiBreedImage[2]}" id="wiki-photo" alt="${wikiBreedName[2]}">
 						<p>${wikiBreedInfo[2]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-4">
+				<div class="pet-lookup" data-breed="${wikiBreedName[3]}">
 					<h2>${wikiBreedName[3]}</h2>
-						<img src="${wikiBreedImage[3]}" class="wiki-photo" alt="${wikiBreedName[3]}">
+						<img src="${wikiBreedImage[3]}" id="wiki-photo" alt="${wikiBreedName[3]}">
 						<p>${wikiBreedInfo[3]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-5">
+				<div class="pet-lookup" data-breed="${wikiBreedName[4]}">
 					<h2>${wikiBreedName[4]}</h2>
-						<img src="${wikiBreedImage[4]}" class="wiki-photo" alt="${wikiBreedName[4]}">
+						<img src="${wikiBreedImage[4]}" id="wiki-photo" alt="${wikiBreedName[4]}">
 						<p>${wikiBreedInfo[4]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-6">
+				<div class="pet-lookup" data-breed="${wikiBreedName[5]}">
 					<h2>${wikiBreedName[5]}</h2>
-						<img src="${wikiBreedImage[5]}" class="wiki-photo" alt="${wikiBreedName[5]}">
+						<img src="${wikiBreedImage[5]}" id="wiki-photo" alt="${wikiBreedName[5]}">
 						<p>${wikiBreedInfo[5]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-7">
+				<div class="pet-lookup" data-breed="${wikiBreedName[6]}">
 					<h2>${wikiBreedName[6]}</h2>
-						<img src="${wikiBreedImage[6]}" class="wiki-photo" alt="${wikiBreedName[6]}">
+						<img src="${wikiBreedImage[6]}" id="wiki-photo" alt="${wikiBreedName[6]}">
 						<p>${wikiBreedInfo[6]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-8">
+				<div class="pet-lookup" data-breed="${wikiBreedName[7]}">
 					<h2>${wikiBreedName[7]}</h2>
-						<img src="${wikiBreedImage[7]}" class="wiki-photo" alt="${wikiBreedName[7]}">
+						<img src="${wikiBreedImage[7]}" id="wiki-photo" alt="${wikiBreedName[7]}">
 						<p>${wikiBreedInfo[7]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-9">
+				<div class="pet-lookup" data-breed="${wikiBreedName[8]}">
 					<h2>${wikiBreedName[8]}</h2>
-						<img src="${wikiBreedImage[8]}" class="wiki-photo" alt="${wikiBreedName[8]}">
+						<img src="${wikiBreedImage[8]}" id="wiki-photo" alt="${wikiBreedName[8]}">
 						<p>${wikiBreedInfo[8]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
 				</div>
-				<div class= "dog-breed-10">
+				<div class="pet-lookup" data-breed="${wikiBreedName[9]}">
 					<h2>${wikiBreedName[9]}</h2>
-						<img src="${wikiBreedImage[9]}" class="wiki-photo" alt="${wikiBreedName[9]}">
+						<img src="${wikiBreedImage[9]}" id="wiki-photo" alt="${wikiBreedName[9]}">
 						<p>${wikiBreedInfo[9]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}">Read more on Wikipedia </a>	
 				</div>
@@ -549,6 +1252,36 @@ function renderWiki(){
 		</div>
 	`;
 }
+
+//function to call Petfinder API
+function callPetFinderAPI(breedNames){
+	//store selected breed in variable (for loop?)
+	$('.pet-lookup').on("click", function(){
+		let selectedBreed = $(this).attr('data-breed');
+		console.log(selectedBreed);
+		let url = PETFINDER_SEARCH_URL + selectedBreed;
+		$.getJSON(url, displayPetFinder);	
+	});
+	
+
+}
+
+function displayPetFinder(data){
+	console.log(data);
+
+	//$(".js-render-wiki").html("");
+	//got data I need from API. Now to create Form?HTML? Event listener, so when breed is selected, renders adoptable dogs in LA
+	//Link "Find Adoptable Pets" or "Find adoptable ${dogBreed} + s" or "Find available (breed) + s for adoption"
+
+	//If/Else statement to only render Pets with images
+
+	//Create Translation table for PetFinder Breed Names
+
+	//Add adoptable links to Render Wiki HTML
+	// event listener, on click of adoptable links, clear wiki html and render pet html(adopt-section)
+	//then links from adopt-section to petfinder page (or petID page)
+}
+
 
 
 function takeQuiz(){
