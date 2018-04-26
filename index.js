@@ -7,6 +7,8 @@ let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org/w//api.php?action=query&form
 let WIKIPEDIA_REFERENCE_URL="https://en.wikipedia.org/wiki/"
 let PETFINDER_SEARCH_URL = 'http://api.petfinder.com/pet.find?key=4ac3fe4007cf229375a357a8aeed3957&callback=?&animal=dog&count=5&pages=10&location=Los+Angeles+CA&output=full&format=json&breed=';
 
+let sortBreedMatches=[];
+
 let wikiBreedName= [];
 let petFinderBreedName= [];
 let wikiBreedInfo= [];
@@ -1134,38 +1136,33 @@ function nextQuestion(){
 			$(".js-quiz-section").html("");
 			//take user score, find matching breeds, and store in variable
 			let userBreedMatches= dogBreedMatch[totalPoints].breeds;
-			callWikiAPI(userBreedMatches);
+			sortBreedMatches = userBreedMatches.sort();;
+			callWikiAPI(sortBreedMatches);
 		
 	
 	}
 }
 
 //function to call Wiki API
-function callWikiAPI (userBreedMatches){
+function callWikiAPI (sortBreedMatches){
 
 	for (let i=0; i < 10; i++){
-		let dogBreed = userBreedMatches[i].wiki;
-		petFinderBreedName.push(userBreedMatches[i].petFinder);
-		console.log(dogBreed);
+		let dogBreed = sortBreedMatches[i].wiki;
 		let url = WIKIPEDIA_SEARCH_URL + dogBreed;
 		$.getJSON(url, displayWiki);
 	}
 
 }
 
-//UPDATE BREED NAME OBJECT NAMES
-//UPDATE ALL FUNCTIONS TO PULL CORRECT LOCATION/NAME
-//UPDATE RENDER WIKI TO GRAB PETFINDER NAMES
-
-
 //function displayWiki(userBreedMatches){
   function displayWiki(data){
-  	//console.log(data);
 	let page = data.query.pages;
 	let pageId= Object.keys(data.query.pages)[0];
 
+
 	wikiBreedName.push(page[pageId].title);
 	wikiBreedInfo.push(page[pageId].extract);
+
 
 	if (pageId === "976970"){
 		wikiBreedImage.push("https://upload.wikimedia.org/wikipedia/commons/b/b4/Aigrette_Velikiy_%28Tsaluma_say_strazce_z_Tibetu_x_Legenda_Tibeta_vlastelin_kolets%29.jpg")
@@ -1177,10 +1174,15 @@ function callWikiAPI (userBreedMatches){
 		wikiBreedImage.push(page[pageId].original.source)
 	}
 
+	for (let i=0; i < 10; i++){
+		if (page[pageId].title === sortBreedMatches[i].wiki){
+			petFinderBreedName.push(sortBreedMatches[i].petFinder);
+		}
+	}
+	
 $(".js-wiki-section").html(renderWiki());
 
 callPetFinderAPI(wikiBreedName);
-
 
 }
 
@@ -1194,55 +1196,55 @@ function renderWiki(){
 						<p>${wikiBreedInfo[0]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[1]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[1]}">
 					<h2>${wikiBreedName[1]}</h2>
 						<img src="${wikiBreedImage[1]}" id="wiki-photo" alt="${wikiBreedName[1]}">
 						<p>${wikiBreedInfo[1]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[2]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[2]}">
 					<h2>${wikiBreedName[2]}</h2>
 						<img src="${wikiBreedImage[2]}" id="wiki-photo" alt="${wikiBreedName[2]}">
 						<p>${wikiBreedInfo[2]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[3]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[3]}">
 					<h2>${wikiBreedName[3]}</h2>
 						<img src="${wikiBreedImage[3]}" id="wiki-photo" alt="${wikiBreedName[3]}">
 						<p>${wikiBreedInfo[3]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[4]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[4]}">
 					<h2>${wikiBreedName[4]}</h2>
 						<img src="${wikiBreedImage[4]}" id="wiki-photo" alt="${wikiBreedName[4]}">
 						<p>${wikiBreedInfo[4]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[5]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[5]}">
 					<h2>${wikiBreedName[5]}</h2>
 						<img src="${wikiBreedImage[5]}" id="wiki-photo" alt="${wikiBreedName[5]}">
 						<p>${wikiBreedInfo[5]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[6]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[6]}">
 					<h2>${wikiBreedName[6]}</h2>
 						<img src="${wikiBreedImage[6]}" id="wiki-photo" alt="${wikiBreedName[6]}">
 						<p>${wikiBreedInfo[6]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[7]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[7]}">
 					<h2>${wikiBreedName[7]}</h2>
 						<img src="${wikiBreedImage[7]}" id="wiki-photo" alt="${wikiBreedName[7]}">
 						<p>${wikiBreedInfo[7]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[8]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[8]}">
 					<h2>${wikiBreedName[8]}</h2>
 						<img src="${wikiBreedImage[8]}" id="wiki-photo" alt="${wikiBreedName[8]}">
 						<p>${wikiBreedInfo[8]}</p>
 						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
 				</div>
-				<div class="pet-lookup" data-breed="${wikiBreedName[9]}">
+				<div class="pet-lookup" data-breed="${petFinderBreedName[9]}">
 					<h2>${wikiBreedName[9]}</h2>
 						<img src="${wikiBreedImage[9]}" id="wiki-photo" alt="${wikiBreedName[9]}">
 						<p>${wikiBreedInfo[9]}</p>
@@ -1255,7 +1257,10 @@ function renderWiki(){
 
 //function to call Petfinder API
 function callPetFinderAPI(breedNames){
-	//store selected breed in variable (for loop?)
+	
+	//console.log(wikiBreedName);
+	//console.log(petFinderBreedName);
+
 	$('.pet-lookup').on("click", function(){
 		let selectedBreed = $(this).attr('data-breed');
 		console.log(selectedBreed);
@@ -1263,11 +1268,12 @@ function callPetFinderAPI(breedNames){
 		$.getJSON(url, displayPetFinder);	
 	});
 	
-
 }
 
 function displayPetFinder(data){
 	console.log(data);
+
+	//Make sure to display Messages when No matches are available
 
 	//$(".js-render-wiki").html("");
 	//got data I need from API. Now to create Form?HTML? Event listener, so when breed is selected, renders adoptable dogs in LA
