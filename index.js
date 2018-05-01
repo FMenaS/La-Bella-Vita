@@ -1,5 +1,6 @@
 'use strict';
 
+//Quiz variables
 let currentQuestion=0;
 let totalPoints=0;
 
@@ -9,11 +10,23 @@ let PETFINDER_SEARCH_URL = 'http://api.petfinder.com/pet.find?key=4ac3fe4007cf22
 
 let sortBreedMatches=[];
 
+//global variables to store Wikipedia API data
 let wikiBreedName= [];
-let petFinderBreedName= [];
 let wikiBreedInfo= [];
 let wikiBreedImage=[];
 
+//Store PetFinder breed name translations
+let petFinderBreedName= [];
+
+let selectedBreed="";
+
+//global variables to store PetFinder API characteristics
+let petName= [];
+let petAge= [];
+let petSex= [];
+let petSize= [];
+let petDescription= [];
+let petPhoto= []; 
 
 const questionBank= [
 	{
@@ -1189,66 +1202,88 @@ callPetFinderAPI(wikiBreedName);
 function renderWiki(){
 	return `
 		<div class= "js-render-wiki">
+		<h1>Your matches are: </h1>
+		<p> Select a breed to see available adoptions in Los Angeles.</p>
 			<div class= "dog-breeds">
 				<div class="pet-lookup" data-breed="${petFinderBreedName[0]}">
 					<h2>${wikiBreedName[0]}</h2>
 						<img src="${wikiBreedImage[0]}" id="wiki-photo" alt="${wikiBreedName[0]}">
 						<p>${wikiBreedInfo[0]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[1]}">
 					<h2>${wikiBreedName[1]}</h2>
 						<img src="${wikiBreedImage[1]}" id="wiki-photo" alt="${wikiBreedName[1]}">
 						<p>${wikiBreedInfo[1]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[2]}">
 					<h2>${wikiBreedName[2]}</h2>
 						<img src="${wikiBreedImage[2]}" id="wiki-photo" alt="${wikiBreedName[2]}">
 						<p>${wikiBreedInfo[2]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
-				</div>
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
+						</div>
+					</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[3]}">
 					<h2>${wikiBreedName[3]}</h2>
 						<img src="${wikiBreedImage[3]}" id="wiki-photo" alt="${wikiBreedName[3]}">
 						<p>${wikiBreedInfo[3]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[4]}">
 					<h2>${wikiBreedName[4]}</h2>
 						<img src="${wikiBreedImage[4]}" id="wiki-photo" alt="${wikiBreedName[4]}">
 						<p>${wikiBreedInfo[4]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[5]}">
 					<h2>${wikiBreedName[5]}</h2>
 						<img src="${wikiBreedImage[5]}" id="wiki-photo" alt="${wikiBreedName[5]}">
 						<p>${wikiBreedInfo[5]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[6]}">
 					<h2>${wikiBreedName[6]}</h2>
 						<img src="${wikiBreedImage[6]}" id="wiki-photo" alt="${wikiBreedName[6]}">
 						<p>${wikiBreedInfo[6]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[7]}">
 					<h2>${wikiBreedName[7]}</h2>
 						<img src="${wikiBreedImage[7]}" id="wiki-photo" alt="${wikiBreedName[7]}">
 						<p>${wikiBreedInfo[7]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[8]}">
 					<h2>${wikiBreedName[8]}</h2>
 						<img src="${wikiBreedImage[8]}" id="wiki-photo" alt="${wikiBreedName[8]}">
 						<p>${wikiBreedInfo[8]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 				<div class="pet-lookup" data-breed="${petFinderBreedName[9]}">
 					<h2>${wikiBreedName[9]}</h2>
 						<img src="${wikiBreedImage[9]}" id="wiki-photo" alt="${wikiBreedName[9]}">
 						<p>${wikiBreedInfo[9]}</p>
-						<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}">Read more on Wikipedia </a>	
+						<div class= "read-more-wiki">
+							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}">Read more on Wikipedia </a>	
+						</div>
 				</div>
 			</div>
 		</div>
@@ -1262,10 +1297,12 @@ function callPetFinderAPI(breedNames){
 	//console.log(petFinderBreedName);
 
 	$('.pet-lookup').on("click", function(){
-		let selectedBreed = $(this).attr('data-breed');
+		selectedBreed = $(this).attr('data-breed');
 		console.log(selectedBreed);
 		let url = PETFINDER_SEARCH_URL + selectedBreed;
-		$.getJSON(url, displayPetFinder);	
+		$.getJSON(url, displayPetFinder);
+
+		$(".js-render-wiki").html("");
 	});
 	
 }
@@ -1273,19 +1310,164 @@ function callPetFinderAPI(breedNames){
 function displayPetFinder(data){
 	console.log(data);
 
-	//Make sure to display Messages when No matches are available
+	//check for no description or no image?
+	//what if less than 5 pets are available?
+	//Take to Start Page? Or Please select another breed?
 
-	//$(".js-render-wiki").html("");
-	//got data I need from API. Now to create Form?HTML? Event listener, so when breed is selected, renders adoptable dogs in LA
+	//Check for breed selections that have not current adoptable pets
+	if (JSON.stringify(data.petfinder.pets) == "{}"){
+		//console.log("We're sorry, there are currently no " + selectedBreed + "s available.");
+		$(".js-adopt-section").html(renderNoPets());
+	}
+	else{
+
+		for (let i=0; i < 5; i++){
+			if (JSON.stringify(data.petfinder.pets.pet[i].name) == "{}") {
+				break;
+			}
+			else{
+				petName.push(data.petfinder.pets.pet[i].name.$t);
+			}
+			if (JSON.stringify(data.petfinder.pets.pet[i].age) == "{}"){
+				petAge.push("Age not available.")
+			}
+			else{
+				petAge.push(data.petfinder.pets.pet[i].age.$t);
+			}
+
+			if (JSON.stringify(data.petfinder.pets.pet[i].sex) == "{}"){
+				petSex.push("Sex not available.")
+			}
+			else if ((data.petfinder.pets.pet[i].sex.$t) == "M"){
+				petSex.push("Male");
+			}
+			else if ((data.petfinder.pets.pet[i].sex.$t) == "F"){
+				petSex.push("Female");
+			}	
+
+			if (JSON.stringify(data.petfinder.pets.pet[i].size) == "{}"){
+				petSize.push("Size not available.")
+			}
+			else if((data.petfinder.pets.pet[i].size.$t) == "S"){
+				petSize.push("Small");
+			}
+			else if((data.petfinder.pets.pet[i].size.$t) == "M"){
+				petSize.push("Medium");
+			}	
+			else if((data.petfinder.pets.pet[i].size.$t) == "L"){
+				petSize.push("Large");
+			}
+
+			if (JSON.stringify(data.petfinder.pets.pet[i].description) == "{}"){
+				petDescription.push("No description is currently available.")
+			}
+			else{
+				petDescription.push(data.petfinder.pets.pet[i].description.$t);
+			}
+			if (JSON.stringify(data.petfinder.pets.pet[i].media) == "{}"){
+				petPhoto.push("Photo not available.")
+			}
+			else{
+				petPhoto.push(data.petfinder.pets.pet[i].media.photos.photo[3].$t);
+			}
+			
+		}
+		//Render returned matches
+		$(".js-adopt-section").html(renderPets());
+	}
+
+	
+	
 	//Link "Find Adoptable Pets" or "Find adoptable ${dogBreed} + s" or "Find available (breed) + s for adoption"
 
 	//If/Else statement to only render Pets with images
+	//If/else for no dog description
 
-	//Create Translation table for PetFinder Breed Names
+	//Make sure to display Messages when No matches are available (ex. Puli)
+
 
 	//Add adoptable links to Render Wiki HTML
 	// event listener, on click of adoptable links, clear wiki html and render pet html(adopt-section)
 	//then links from adopt-section to petfinder page (or petID page)
+	
+}
+
+//Render HTML for breeds that return no matches.
+function renderNoPets(){
+	return `
+	<div class= "js-no-pets-rendered">
+		<h2>"We're sorry, there are currently no ${selectedBreed}s available in Los Angeles."</h2>
+	</div>
+	`;
+}
+
+
+function renderPets(){
+	return `
+		<div class= "js-render-pets">
+			<div class="returned-matches">
+				<div class="available-pet">
+					<h2>${petName[0]}</h2>
+						<img id="pet-photo" src="${petPhoto[0]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[0]}">
+						<div class= "pet-size">Size: ${petSize[0]}</div>
+						<div class="pet-sex">Sex: ${petSex[0]}</div>
+						<div class="pet-age">Age: ${petAge[0]}</div>
+						<p>Description: ${petDescription[0]}</p>
+						<div class= "read-more-petfinder">
+							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[0]}">Take a look at my Petfinder profile!</a>
+						</div>
+				</div>
+				<div class="available-pet">
+					<h2>${petName[1]}</h2>
+						<img id="pet-photo" src="${petPhoto[1]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'"  alt="${petName[1]}">
+						<div class= "pet-size">Size: ${petSize[1]}</div>
+						<div class="pet-sex">Sex: ${petSex[1]}</div>
+						<div class="pet-age">Age: ${petAge[1]}</div>
+						<p>Description: ${petDescription[1]}</p>
+						<div class= "read-more-petfinder">
+							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[1]}">Take a look at my Petfinder profile!</a>
+						</div>
+				</div>
+				<div class="available-pet">
+					<h2>${petName[2]}</h2>
+						<img id="pet-photo" src="${petPhoto[2]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[2]}">
+						<div class= "pet-size">Size: ${petSize[2]}</div>
+						<div class="pet-sex">Sex: ${petSex[2]}</div>
+						<div class="pet-age">Age: ${petAge[2]}</div>
+						<p>Description: ${petDescription[2]}</p>
+						<div class= "read-more-petfinder">
+							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[2]}">Take a look at my Petfinder profile!</a>
+						</div>
+				</div>
+				<div class="available-pet">
+					<h2>${petName[3]}</h2>
+						<img id="pet-photo" src="${petPhoto[3]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[3]}">
+						<div class= "pet-size">Size: ${petSize[3]}</div>
+						<div class="pet-sex">Sex: ${petSex[3]}</div>
+						<div class="pet-age">Age: ${petAge[3]}</div>
+						<p>Description: ${petDescription[3]}</p>
+						<div class= "read-more-petfinder">
+							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[3]}">Take a look at my Petfinder profile!</a>
+						</div>
+				</div>
+				<div class="available-pet">
+					<h2>${petName[4]}</h2>
+						<img id="pet-photo" src="${petPhoto[4]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[4]}">
+						<div class= "pet-size">Size: ${petSize[4]}</div>
+						<div class="pet-sex">Sex: ${petSex[4]}</div>
+						<div class="pet-age">Age: ${petAge[4]}</div>
+						<p>Description: ${petDescription[4]}</p>
+						<div class= "read-more-petfinder">
+							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[4]}">Take a look at my Petfinder profile!</a>
+						</div>
+				</div>
+			</div>
+			<div class="see-more-matches">
+				<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}">Find more matches on PetFinder!</a>
+			</div>
+		</div>
+			
+	`;
 }
 
 
