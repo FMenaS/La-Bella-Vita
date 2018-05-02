@@ -1310,11 +1310,12 @@ function callPetFinderAPI(breedNames){
 function displayPetFinder(data){
 	console.log(data);
 
-	//check for no description or no image?
+	let results = (data.petfinder.lastOffset.$t);
+	let resultsAsNumber = parseInt(results);
 	//what if less than 5 pets are available?
 	//Take to Start Page? Or Please select another breed?
 
-	//Check for breed selections that have not current adoptable pets
+	//Check for breed selections that have no current adoptable pets
 	if (JSON.stringify(data.petfinder.pets) == "{}"){
 		//console.log("We're sorry, there are currently no " + selectedBreed + "s available.");
 		$(".js-adopt-section").html(renderNoPets());
@@ -1322,54 +1323,170 @@ function displayPetFinder(data){
 	else{
 
 		for (let i=0; i < 5; i++){
-			if (JSON.stringify(data.petfinder.pets.pet[i].name) == "{}") {
+			//PET NAME
+			//If no more pets available
+			if (i == resultsAsNumber) {
 				break;
 			}
-			else{
+			//If only 1 pet available
+			else if ((data.petfinder.lastOffset.$t) == 1){
+				petName.push(data.petfinder.pets.pet.name.$t);
+			}
+			//If more than 1 pet available
+			else if ((data.petfinder.lastOffset.$t) > 1 ){
 				petName.push(data.petfinder.pets.pet[i].name.$t);
 			}
-			if (JSON.stringify(data.petfinder.pets.pet[i].age) == "{}"){
-				petAge.push("Age not available.")
+
+			//PET AGE
+			//Only 1 pet available
+			if ((data.petfinder.lastOffset.$t) == 1){
+				//If Age is not available
+				if ((data.petfinder.pets.pet.age) == ""){
+					petAge.push("Age not available.");
+				}
+				//If Age is available
+				else{
+				petAge.push(data.petfinder.pets.pet.age.$t);
+				}
 			}
-			else{
-				petAge.push(data.petfinder.pets.pet[i].age.$t);
+			//More than 1 pet available
+			else if  ((data.petfinder.lastOffset.$t) > 1){
+				//If Age is not available
+				if (JSON.stringify(data.petfinder.pets.pet[i].age) == "{}"){
+					petAge.push("Age not available.");
+				}
+				//If Age is available
+				else{
+					petAge.push(data.petfinder.pets.pet[i].age.$t);
+				}	
+			}
+	
+			//PET SEX
+			//Only 1 pet available
+			if ((data.petfinder.lastOffset.$t) == 1){
+				//If sex not available
+				if ((data.petfinder.pets.pet.sex) == ""){
+					petSex.push("Sex not available.");
+				}
+				//If Sex available
+				else if ((data.petfinder.pets.pet.sex.$t) == "M"){
+					petSex.push("Male");
+				}
+				else if ((data.petfinder.pets.pet.sex.$t) == "F"){
+					petSex.push("Female");
+				}
+			} 
+			//More than 1 pet available
+			else if((data.petfinder.lastOffset.$t) > 1){
+				//If sex not available
+				if (JSON.stringify(data.petfinder.pets.pet[i].sex) == "{}"){
+				petSex.push("Sex not available.");
+				}
+				//If sex is available
+				else {
+					if ((data.petfinder.pets.pet[i].sex.$t) == "M"){
+						petSex.push("Male");
+						}
+					else if ((data.petfinder.pets.pet[i].sex.$t) == "F"){
+						petSex.push("Female");
+						}	
+				}
+	
 			}
 
-			if (JSON.stringify(data.petfinder.pets.pet[i].sex) == "{}"){
-				petSex.push("Sex not available.")
+			//PET SIZE
+			//Only 1 pet available
+			if ((data.petfinder.lastOffset.$t) == 1){
+				//If pet size is not available
+				if ((data.petfinder.pets.pet.size) == ""){
+					petSize.push("Size not available.");
+				}
+				//If pet size is available
+				else if ((data.petfinder.pets.pet.size.$t) == "S"){
+					petSize.push("Small");
+				}
+				else if ((data.petfinder.pets.pet.size.$t) == "M"){
+					petSize.push("Medium");
+				}
+				else if ((data.petfinder.pets.pet.size.$t) == "L"){
+					petSize.push("Large");
+				}
+				else if ((data.petfinder.pets.pet.size.$t) == "XL"){
+					petSize.push("Extra Large");
+				}
 			}
-			else if ((data.petfinder.pets.pet[i].sex.$t) == "M"){
-				petSex.push("Male");
-			}
-			else if ((data.petfinder.pets.pet[i].sex.$t) == "F"){
-				petSex.push("Female");
+
+			//More than 1 pet available
+			else if ((data.petfinder.lastOffset.$t) > 1){
+				//If Pet size not available
+				if (JSON.stringify(data.petfinder.pets.pet[i].size) == "{}"){
+					petSize.push("Size not available.");
+				}
+				//If pet size is available
+				else {
+					if((data.petfinder.pets.pet[i].size.$t) == "S"){
+						petSize.push("Small");
+					}
+					else if((data.petfinder.pets.pet[i].size.$t) == "M"){
+						petSize.push("Medium");
+					}	
+					else if((data.petfinder.pets.pet[i].size.$t) == "L"){
+						petSize.push("Large");
+					}
+					else if((data.petfinder.pets.pet[i].size.$t) == "XL"){
+						petSize.push("Extra Large");
+					}
+				}
 			}	
+			//PET DESCRIPTION
+			//Only 1 pet available
+			if ((data.petfinder.lastOffset.$t) == 1){
+				//No description available
+				if ((data.petfinder.pets.pet.description) == ""){
+					petDescription.push("No description is currently available.")
+				}
+				//Description available
+				else{
+					petDescription.push(data.petfinder.pets.pet.description.$t);
+				}
+				
+			}
+			//More than 1 pet available
+			else if ((data.petfinder.lastOffset.$t) > 1){
+				//No pet description available
+				if (JSON.stringify(data.petfinder.pets.pet[i].description) == "{}"){
+					petDescription.push("No description is currently available.");
+				}
+				//Pet Description is available
+				else {
+					petDescription.push(data.petfinder.pets.pet[i].description.$t);
+				}	
+			}
 
-			if (JSON.stringify(data.petfinder.pets.pet[i].size) == "{}"){
-				petSize.push("Size not available.")
+			//PET PHOTO
+			//Only 1 pet available
+			if ((data.petfinder.lastOffset.$t) == 1){
+				//No pet photo available
+				if((data.petfinder.pets.pet.media) == ""){
+					petPhoto.push("Photo not available.");
+				}
+				//Photo is available
+				else {
+					petPhoto.push(data.petfinder.pets.pet.media.photos.photo[3].$t);
+				}	
 			}
-			else if((data.petfinder.pets.pet[i].size.$t) == "S"){
-				petSize.push("Small");
-			}
-			else if((data.petfinder.pets.pet[i].size.$t) == "M"){
-				petSize.push("Medium");
+			//More than 1 pet available
+			else if ((data.petfinder.lastOffset.$t) > 1){
+				//No pet Photo Available
+				if (JSON.stringify(data.petfinder.pets.pet[i].media) == "{}"){
+					petPhoto.push("Photo not available.");
+				}
+				//Pet Photo is available
+				else {
+					petPhoto.push(data.petfinder.pets.pet[i].media.photos.photo[3].$t);
+				}
 			}	
-			else if((data.petfinder.pets.pet[i].size.$t) == "L"){
-				petSize.push("Large");
-			}
-
-			if (JSON.stringify(data.petfinder.pets.pet[i].description) == "{}"){
-				petDescription.push("No description is currently available.")
-			}
-			else{
-				petDescription.push(data.petfinder.pets.pet[i].description.$t);
-			}
-			if (JSON.stringify(data.petfinder.pets.pet[i].media) == "{}"){
-				petPhoto.push("Photo not available.")
-			}
-			else{
-				petPhoto.push(data.petfinder.pets.pet[i].media.photos.photo[3].$t);
-			}
+			//console.log(petDescription);
 			
 		}
 		//Render returned matches
@@ -1412,7 +1529,8 @@ function renderPets(){
 						<div class= "pet-size">Size: ${petSize[0]}</div>
 						<div class="pet-sex">Sex: ${petSex[0]}</div>
 						<div class="pet-age">Age: ${petAge[0]}</div>
-						<p>Description: ${petDescription[0]}</p>
+						<h3>Meet ${petName[0]}:</h3>
+						<p>${petDescription[0]}</p>
 						<div class= "read-more-petfinder">
 							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[0]}">Take a look at my Petfinder profile!</a>
 						</div>
@@ -1423,7 +1541,8 @@ function renderPets(){
 						<div class= "pet-size">Size: ${petSize[1]}</div>
 						<div class="pet-sex">Sex: ${petSex[1]}</div>
 						<div class="pet-age">Age: ${petAge[1]}</div>
-						<p>Description: ${petDescription[1]}</p>
+						<h3>Meet ${petName[1]}:</h3>
+						<p>${petDescription[1]}</p>
 						<div class= "read-more-petfinder">
 							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[1]}">Take a look at my Petfinder profile!</a>
 						</div>
@@ -1434,7 +1553,8 @@ function renderPets(){
 						<div class= "pet-size">Size: ${petSize[2]}</div>
 						<div class="pet-sex">Sex: ${petSex[2]}</div>
 						<div class="pet-age">Age: ${petAge[2]}</div>
-						<p>Description: ${petDescription[2]}</p>
+						<h3>Meet ${petName[2]}:</h3>
+						<p>${petDescription[2]}</p>
 						<div class= "read-more-petfinder">
 							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[2]}">Take a look at my Petfinder profile!</a>
 						</div>
@@ -1445,7 +1565,8 @@ function renderPets(){
 						<div class= "pet-size">Size: ${petSize[3]}</div>
 						<div class="pet-sex">Sex: ${petSex[3]}</div>
 						<div class="pet-age">Age: ${petAge[3]}</div>
-						<p>Description: ${petDescription[3]}</p>
+						<h3>Meet ${petName[3]}:</h3>
+						<p>${petDescription[3]}</p>
 						<div class= "read-more-petfinder">
 							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[3]}">Take a look at my Petfinder profile!</a>
 						</div>
@@ -1456,7 +1577,8 @@ function renderPets(){
 						<div class= "pet-size">Size: ${petSize[4]}</div>
 						<div class="pet-sex">Sex: ${petSex[4]}</div>
 						<div class="pet-age">Age: ${petAge[4]}</div>
-						<p>Description: ${petDescription[4]}</p>
+						<h3>Meet ${petName[4]}:</h3>
+						<p>${petDescription[4]}</p>
 						<div class= "read-more-petfinder">
 							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[4]}">Take a look at my Petfinder profile!</a>
 						</div>
