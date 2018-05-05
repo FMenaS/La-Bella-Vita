@@ -1312,7 +1312,8 @@ function displayPetFinder(data){
 
 	let results = (data.petfinder.lastOffset.$t);
 	let resultsAsNumber = parseInt(results);
-	//what if less than 5 pets are available?
+	//what if less than 5 pets are available? HTML?
+	//If pets < 5, then only render HTML one at a time? (ex. Australian Terrier)
 	//Take to Start Page? Or Please select another breed?
 
 	//Check for breed selections that have no current adoptable pets
@@ -1492,21 +1493,6 @@ function displayPetFinder(data){
 		//Render returned matches
 		$(".js-adopt-section").html(renderPets());
 	}
-
-	
-	
-	//Link "Find Adoptable Pets" or "Find adoptable ${dogBreed} + s" or "Find available (breed) + s for adoption"
-
-	//If/Else statement to only render Pets with images
-	//If/else for no dog description
-
-	//Make sure to display Messages when No matches are available (ex. Puli)
-
-
-	//Add adoptable links to Render Wiki HTML
-	// event listener, on click of adoptable links, clear wiki html and render pet html(adopt-section)
-	//then links from adopt-section to petfinder page (or petID page)
-	
 }
 
 //Render HTML for breeds that return no matches.
@@ -1517,7 +1503,6 @@ function renderNoPets(){
 	</div>
 	`;
 }
-
 
 function renderPets(){
 	return `
@@ -1591,8 +1576,6 @@ function renderPets(){
 			
 	`;
 }
-
-
 
 function takeQuiz(){
 	$(".start-button").on('click', function (event){
