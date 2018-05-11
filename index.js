@@ -31,10 +31,10 @@ let petPhoto= [];
 const questionBank= [
 	{
 		question: "How much time do you spend exercising everyday?",
-		options: ["None",
-				  "Less than 15 minutes",
+		options: ["I don't exercise",
 				  "30 minutes",
-				  "An hour or more"]
+				  "1 Hour",
+				  "More than 1 Hour"]
 	},
 
 	{
@@ -56,10 +56,10 @@ const questionBank= [
 
 	{
 		question: "How much time will you dedicate to playing with your dog?",
-		options: ["None",
-				  "15 minutes a day",
+		options: ["10 minutes a day",
 				  "30 minutes a day",
-				  "An hour or more"]
+				  "1 Hour",
+				  "More than 1 Hour"]
 	},	
 
 	{
@@ -1084,9 +1084,20 @@ const dogBreedMatch= [
 ];
 
 
+function scrollToBottom(){
+	$("#start-button").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#quiz-id").offset().top
+    }, 2000);
+});
+}
+
+
+
 function displayQuestion(){
-	console.log('displayQuestion ran')
+	//console.log('displayQuestion ran');
 	$(".js-quiz-section").html(generateQuestion());
+	scrollToBottom();
 }
 
 
@@ -1118,12 +1129,13 @@ function generateQuestion(){
 					<span>${questionBank[currentQuestion].options[3]}</span>				
 				</label>
 
-				<input type="submit" value="Submit Answer">
+				<input class="submit-button" type="submit" value="Submit Answer">
 
 			</fieldset>
 			</form>
 	</div>`;
 }
+
 
 
 function handleAnswers(){
@@ -1146,13 +1158,16 @@ function nextQuestion(){
 	}
 	else if (currentQuestion === 7){
 			//hide quiz
-			$(".js-quiz-section").html("");
+			$(".js-quiz-section").html("");	
 			//take user score, find matching breeds, and store in variable
 			let userBreedMatches= dogBreedMatch[totalPoints].breeds;
 			sortBreedMatches = userBreedMatches.sort();;
 			callWikiAPI(sortBreedMatches);
-		
-	
+			//position page to show breed matches
+			$('html, body').animate({
+        	scrollTop: $("#quiz-id").offset().top
+    		}, 2000);
+
 	}
 }
 
@@ -1202,89 +1217,141 @@ callPetFinderAPI(wikiBreedName);
 function renderWiki(){
 	return `
 		<div class= "js-render-wiki">
-		<h1>Your matches are: </h1>
-		<p> Select a breed to see available adoptions in Los Angeles.</p>
+			<div class="wiki-message"
+				<p>Click on an image to see available adoptions in Los Angeles.</p>
+				<h1>Your matches are: </h1>
+			</div>
 			<div class= "dog-breeds">
 				<div class="pet-lookup" data-breed="${petFinderBreedName[0]}">
-					<h2>${wikiBreedName[0]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[0]}</h2>
 						<img src="${wikiBreedImage[0]}" id="wiki-photo" alt="${wikiBreedName[0]}">
-						<p>${wikiBreedInfo[0]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}">Read more on Wikipedia </a>	
-						</div>
-				</div>
-				<div class="pet-lookup" data-breed="${petFinderBreedName[1]}">
-					<h2>${wikiBreedName[1]}</h2>
-						<img src="${wikiBreedImage[1]}" id="wiki-photo" alt="${wikiBreedName[1]}">
-						<p>${wikiBreedInfo[1]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}">Read more on Wikipedia </a>	
-						</div>
-				</div>
-				<div class="pet-lookup" data-breed="${petFinderBreedName[2]}">
-					<h2>${wikiBreedName[2]}</h2>
-						<img src="${wikiBreedImage[2]}" id="wiki-photo" alt="${wikiBreedName[2]}">
-						<p>${wikiBreedInfo[2]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}">Read more on Wikipedia </a>	
-						</div>
 					</div>
+					<div class="inline-block wiki-info">
+						<p>${wikiBreedInfo[0]}</p>
+					</div>
+				</div>
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[0]}" target="_blank">Read more on Wikipedia </a>	
+				</div>
+				
+				<div class="pet-lookup" data-breed="${petFinderBreedName[1]}">
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[1]}</h2>
+						<img src="${wikiBreedImage[1]}" id="wiki-photo" alt="${wikiBreedName[1]}">
+					</div>
+					<div class="inline-block wiki-info">
+						<p>${wikiBreedInfo[1]}</p>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[1]}" target="_blank">Read more on Wikipedia </a>	
+				</div>
+				
+				<div class="pet-lookup" data-breed="${petFinderBreedName[2]}">
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[2]}</h2>
+						<img src="${wikiBreedImage[2]}" id="wiki-photo" alt="${wikiBreedName[2]}">
+					</div>
+					<div class="inline-block wiki-info">
+						<p>${wikiBreedInfo[2]}</p>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[2]}" target="_blank">Read more on Wikipedia </a>	
+				</div>
+					
 				<div class="pet-lookup" data-breed="${petFinderBreedName[3]}">
-					<h2>${wikiBreedName[3]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[3]}</h2>
 						<img src="${wikiBreedImage[3]}" id="wiki-photo" alt="${wikiBreedName[3]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[3]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class="read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[3]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[4]}">
-					<h2>${wikiBreedName[4]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[4]}</h2>
 						<img src="${wikiBreedImage[4]}" id="wiki-photo" alt="${wikiBreedName[4]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[4]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[4]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[5]}">
-					<h2>${wikiBreedName[5]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[5]}</h2>
 						<img src="${wikiBreedImage[5]}" id="wiki-photo" alt="${wikiBreedName[5]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[5]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[5]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[6]}">
-					<h2>${wikiBreedName[6]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[6]}</h2>
 						<img src="${wikiBreedImage[6]}" id="wiki-photo" alt="${wikiBreedName[6]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[6]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[6]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[7]}">
-					<h2>${wikiBreedName[7]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[7]}</h2>
 						<img src="${wikiBreedImage[7]}" id="wiki-photo" alt="${wikiBreedName[7]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[7]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[7]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[8]}">
-					<h2>${wikiBreedName[8]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[8]}</h2>
 						<img src="${wikiBreedImage[8]}" id="wiki-photo" alt="${wikiBreedName[8]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[8]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[8]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 				<div class="pet-lookup" data-breed="${petFinderBreedName[9]}">
-					<h2>${wikiBreedName[9]}</h2>
+					<div class="inline-block breed-name-and-image">
+						<h2>${wikiBreedName[9]}</h2>
 						<img src="${wikiBreedImage[9]}" id="wiki-photo" alt="${wikiBreedName[9]}">
+					</div>
+					<div class="inline-block wiki-info">
 						<p>${wikiBreedInfo[9]}</p>
-						<div class= "read-more-wiki">
-							<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}">Read more on Wikipedia </a>	
-						</div>
+					</div>
+				</div>	
+				<div class= "read-more-wiki">
+					<a href="https://en.wikipedia.org/wiki/${wikiBreedName[9]}" target="_blank">Read more on Wikipedia </a>	
 				</div>
+				
 			</div>
 		</div>
 	`;
@@ -1320,6 +1387,10 @@ function displayPetFinder(data){
 	if (JSON.stringify(data.petfinder.pets) == "{}"){
 		//console.log("We're sorry, there are currently no " + selectedBreed + "s available.");
 		$(".js-adopt-section").html(renderNoPets());
+		//position page to show breed matches
+			$('html, body').animate({
+        	scrollTop: $("#quiz-id").offset().top
+    		}, 2000);
 	}
 	else{
 
@@ -1492,6 +1563,10 @@ function displayPetFinder(data){
 		}
 		//Render returned matches
 		$(".js-adopt-section").html(renderPets());
+		//position page to show breed matches
+			$('html, body').animate({
+        	scrollTop: $("#quiz-id").offset().top
+    		}, 2000);
 	}
 }
 
@@ -1499,7 +1574,7 @@ function displayPetFinder(data){
 function renderNoPets(){
 	return `
 	<div class= "js-no-pets-rendered">
-		<h2>"We're sorry, there are currently no ${selectedBreed}s available in Los Angeles."</h2>
+		<h2>We're sorry, there are currently no ${selectedBreed}s available in Los Angeles.</h2>
 	</div>
 	`;
 }
@@ -1507,70 +1582,91 @@ function renderNoPets(){
 function renderPets(){
 	return `
 		<div class= "js-render-pets">
+			<div class="matches-message">Here are 5 available ${selectedBreed}s for you:</div>
 			<div class="returned-matches">
 				<div class="available-pet">
-					<h2>${petName[0]}</h2>
+					<div class="inline-block pet-characteristics">
+						<h2>${petName[0]}</h2>
 						<img id="pet-photo" src="${petPhoto[0]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[0]}">
-						<div class= "pet-size">Size: ${petSize[0]}</div>
+						<div class="pet-size">Size: ${petSize[0]}</div>
 						<div class="pet-sex">Sex: ${petSex[0]}</div>
 						<div class="pet-age">Age: ${petAge[0]}</div>
+					</div>	
+					<div class="inline-block pet-description">
 						<h3>Meet ${petName[0]}:</h3>
 						<p>${petDescription[0]}</p>
-						<div class= "read-more-petfinder">
-							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[0]}">Take a look at my Petfinder profile!</a>
-						</div>
+					</div>
+					<div class= "read-more-petfinder">
+						<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[0]}" target="_blank">Take a look at my Petfinder profile!</a>
+					</div>
 				</div>
 				<div class="available-pet">
-					<h2>${petName[1]}</h2>
+					<div class="inline-block pet-characteristics">
+						<h2>${petName[1]}</h2>
 						<img id="pet-photo" src="${petPhoto[1]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'"  alt="${petName[1]}">
 						<div class= "pet-size">Size: ${petSize[1]}</div>
 						<div class="pet-sex">Sex: ${petSex[1]}</div>
 						<div class="pet-age">Age: ${petAge[1]}</div>
+					</div>
+					<div class="inline-block pet-description">
 						<h3>Meet ${petName[1]}:</h3>
 						<p>${petDescription[1]}</p>
-						<div class= "read-more-petfinder">
-							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[1]}">Take a look at my Petfinder profile!</a>
-						</div>
+					</div>
+					<div class= "read-more-petfinder">
+						<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[1]}" target="_blank">Take a look at my Petfinder profile!</a>
+					</div>
 				</div>
 				<div class="available-pet">
-					<h2>${petName[2]}</h2>
+					<div class="inline-block pet-characteristics">
+						<h2>${petName[2]}</h2>
 						<img id="pet-photo" src="${petPhoto[2]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[2]}">
 						<div class= "pet-size">Size: ${petSize[2]}</div>
 						<div class="pet-sex">Sex: ${petSex[2]}</div>
 						<div class="pet-age">Age: ${petAge[2]}</div>
+					</div>
+					<div class="inline-block pet-description">
 						<h3>Meet ${petName[2]}:</h3>
 						<p>${petDescription[2]}</p>
-						<div class= "read-more-petfinder">
-							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[2]}">Take a look at my Petfinder profile!</a>
-						</div>
+					</div>
+					<div class= "read-more-petfinder">
+						<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[2]}" target="_blank">Take a look at my Petfinder profile!</a>
+					</div>
 				</div>
 				<div class="available-pet">
-					<h2>${petName[3]}</h2>
+					<div class="inline-block pet-characteristics">
+						<h2>${petName[3]}</h2>
 						<img id="pet-photo" src="${petPhoto[3]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[3]}">
-						<div class= "pet-size">Size: ${petSize[3]}</div>
+						<div class="pet-size">Size: ${petSize[3]}</div>
 						<div class="pet-sex">Sex: ${petSex[3]}</div>
 						<div class="pet-age">Age: ${petAge[3]}</div>
+					</div>
+					<div class="inline-block pet-description">
 						<h3>Meet ${petName[3]}:</h3>
 						<p>${petDescription[3]}</p>
-						<div class= "read-more-petfinder">
-							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[3]}">Take a look at my Petfinder profile!</a>
-						</div>
+					</div>
+					<div class= "read-more-petfinder">
+						<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[3]}" target="_blank">Take a look at my Petfinder profile!</a>
+					</div>
 				</div>
 				<div class="available-pet">
-					<h2>${petName[4]}</h2>
+					<div class="inline-block pet-characteristics">
+						<h2>${petName[4]}</h2>
 						<img id="pet-photo" src="${petPhoto[4]}" onerror="this.src='https://ak-s.ostkcdn.com/img/mxc/Missing-Image_Dog.png'" alt="${petName[4]}">
-						<div class= "pet-size">Size: ${petSize[4]}</div>
+						<div class="pet-size">Size: ${petSize[4]}</div>
 						<div class="pet-sex">Sex: ${petSex[4]}</div>
 						<div class="pet-age">Age: ${petAge[4]}</div>
+					</div>
+					<div class="inline-block pet-description">
 						<h3>Meet ${petName[4]}:</h3>
 						<p>${petDescription[4]}</p>
-						<div class= "read-more-petfinder">
-							<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[4]}">Take a look at my Petfinder profile!</a>
-						</div>
+					</div>
+					<div class= "read-more-petfinder">
+						<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}&name=${petName[4]}" target="_blank">Take a look at my Petfinder profile!</a>
+					</div>
 				</div>
 			</div>
 			<div class="see-more-matches">
-				<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}">Find more matches on PetFinder!</a>
+				<a href="https://www.petfinder.com/search/dogs-for-adoption/us/ca/los-angeles/?breed%5B0%5D=${selectedBreed}" target="_blank">Find more ${selectedBreed}s on PetFinder!</a>
 			</div>
 		</div>
 			
