@@ -6,7 +6,7 @@ let totalPoints=0;
 
 let WIKIPEDIA_SEARCH_URL= 'https://en.wikipedia.org/w//api.php?action=query&format=json&origin=*&prop=extracts%7Cpageimages%7Cimages&exintro=1&piprop=original&titles='
 let WIKIPEDIA_REFERENCE_URL="https://en.wikipedia.org/wiki/"
-let PETFINDER_SEARCH_URL = 'http://api.petfinder.com/pet.find?key=4ac3fe4007cf229375a357a8aeed3957&callback=?&animal=dog&count=5&pages=10&location=Los+Angeles+CA&output=full&format=json&breed=';
+let PETFINDER_SEARCH_URL = 'https://api.petfinder.com/pet.find?key=4ac3fe4007cf229375a357a8aeed3957&callback=?&animal=dog&count=5&pages=10&location=Los+Angeles+CA&output=full&format=json&breed=';
 
 let sortBreedMatches=[];
 
