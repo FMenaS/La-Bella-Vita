@@ -1095,6 +1095,7 @@ function scrollToBottom(){
 
 
 function displayQuestion(){
+	//console.log('displayQuestion ran');
 	$(".js-quiz-section").html(generateQuestion());
 	scrollToBottom();
 }
@@ -1359,6 +1360,9 @@ function renderWiki(){
 //function to call Petfinder API
 function callPetFinderAPI(breedNames){
 	
+	//console.log(wikiBreedName);
+	//console.log(petFinderBreedName);
+
 	$('.pet-lookup').on("click", function(){
 		selectedBreed = $(this).attr('data-breed');
 		console.log(selectedBreed);
@@ -1379,7 +1383,9 @@ function displayPetFinder(data){
 	//If pets < 5, then only render HTML one at a time? (ex. Australian Terrier)
 	//Take to Start Page? Or Please select another breed?
 
+	//Check for breed selections that have no current adoptable pets
 	if (JSON.stringify(data.petfinder.pets) == "{}"){
+		//console.log("We're sorry, there are currently no " + selectedBreed + "s available.");
 		$(".js-adopt-section").html(renderNoPets());
 		//position page to show breed matches
 			$('html, body').animate({
@@ -1669,10 +1675,14 @@ function renderPets(){
 
 function takeQuiz(){
 	$(".start-button").on('click', function (event){
+		console.log('takeQuiz ran');
+	/*Find way to add Smooth Scroll effect here*/
+
 	})
 }
 
 function startApp(){
+	console.log('startApp ran');
 	takeQuiz();
 	displayQuestion();
 	handleAnswers();

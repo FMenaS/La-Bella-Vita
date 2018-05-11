@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dog Match App</title>
+    <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fenix" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vesper+Libre" rel="stylesheet">
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="float-grid.css" rel="stylesheet" type="text/css" />
+    <meta name="description" content="L.A. Bella Vita helps residents of Los Angeles find adoptable dogs.">
+  </head>
+  <body>
+    <div class="js-start-section">
+      <div class="banner">
+        <div class="logo-box">
+          <img class="la-logo" src="https://i.imgur.com/2eKLHUC.jpg?4">     
+          <h1 class="start-title"> Bella Vita</h1>  
+        </div>
+
+        <div class="app-description">
+          <p> La Bella Vita matches the dogs of Los Angeles with residents who are looking to be rescued. 
+          </p>
+        </div>
+
+        <div class="btn-start">
+          <button type="button" id="start-button">Find Your New Best Friend!</button>
+          <!--<a href="start-button">Find Your New Best Friend!</a>-->
+        </div>
+
+      </div>
+    </div>
+
+    <main >
+
+      <div class="content-section">
+        <div id="quiz-id" class="js-quiz-section"><!--Manually Create Quiz, Create Energy level table, and scoring--></div>
+        <div class="js-wiki-section"><!--Use Wikipedia API to show breed information--></div>
+        <div class="js-adopt-section"><!--User PetFinder API to show adoptable pets--></div>
+      </div>
+
+      <div class="render-selected-pet"><!--Show pet page once Icon is clicked-->
+      </div>
+
+    </main>
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
