@@ -57,9 +57,9 @@ html {
 #start-button{
   background-color: : rgba(125, 184, 191);
   -moz-border-background: rgba(125, 184, 191);
-  -webkit-background: rgba(125, 184, 191);
+  /*-webkit-background: rgba(125, 184, 191);*/
   -moz-border-radius: 100px / 50px;
-  -webkit-border-radius: 100px / 50px;
+  /*-webkit-border-radius: 100px / 50px;*/
    border-radius: 100px / 50px;
 
   font-size: 10px;
