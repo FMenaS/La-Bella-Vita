@@ -1,6 +1,6 @@
 # La Bella Vita
 
-https://fmenas.github.io/La-Vita-Bella/
+https://fmenas.github.io/La-Bella-Vita/
 
 ## Motivation
 
