@@ -54,7 +54,7 @@ html {
   margin-left: 30%;
 }
 
-#start-button button {
+.btn-start {
   -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
