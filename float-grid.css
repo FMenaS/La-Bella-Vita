@@ -14,10 +14,6 @@ html {
   padding-bottom: -10px;
 }
 
-button[type="button"], input[type="submit"], input[type="reset"] {
-    -webkit-appearance: none;
-}
-
 .js-start-section{
   width: 100vw;
   height: 100vh;
@@ -49,6 +45,10 @@ button[type="button"], input[type="submit"], input[type="reset"] {
    
 }
  
+.btn-start, #start-button{
+  -webkit-appearance: none;
+}
+
 .btn-start{
   padding-top: 8px;
   margin-left: 30%;
