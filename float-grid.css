@@ -39,6 +39,8 @@ html {
   font-size: 107%;
   padding-top: 185px;
   color: rgba(201,242,242);
+  -moz-color: rgba(201,242,242);
+  -webkit-color: rgba(201,242,242);
   font-family: 'Fenix', serif;
 }
  
@@ -49,6 +51,8 @@ html {
 
 #start-button{
   background: rgba(125, 184, 191);
+  -moz-border-background: rgba(125, 184, 191);
+  -webkit-background: rgba(125, 184, 191);
   -moz-border-radius: 100px / 50px;
   -webkit-border-radius: 100px / 50px;
   border-radius: 100px / 50px;
@@ -73,6 +77,8 @@ legend{
   font-size: 20px;
   font-family: 'Fenix', serif;
   color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
 }
 
 fieldset{
@@ -97,7 +103,11 @@ fieldset{
 .submit-button{
   font-size: 15px;
   color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
   background-color: rgba(255,204,160);
+  -moz-background-color: rgba(255,204,160);
+  -webkit-background-color: rgba(255,204,160);
   font-family: 'Roboto Slab', serif;
   padding-left: 2px;
   padding-right:2px;
@@ -107,6 +117,8 @@ fieldset{
   font-family: 'Vesper Libre', serif;
   font-size:15px;
   color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
   padding-top: 5px;
   padding-bottom: 0px;
 }
@@ -146,12 +158,16 @@ div.dog-breeds > div:nth-of-type(even) {
   padding-left: 25%;
   font-family: 'Fenix', serif; 
   color:brown;
+  -moz-color:brown;
+  -webkit-color:brown;
   /*background: rgba(193,231,240);*/
 }
 
 .read-more-wiki a{
   font-size: 10px;
   color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
   /*background-color: rgba(255,204,160);*/
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
@@ -177,6 +193,8 @@ div.returned-matches > div:nth-of-type(even) {
   font-family: 'Vesper Libre', serif;
   font-size:15px;
   color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
   padding-top: 15px;
   padding-bottom: 10px;
 }
@@ -206,6 +224,8 @@ div.returned-matches > div:nth-of-type(even) {
   padding-top: 7px;
   padding-left: 2px;
   color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
 }
 
 .read-more-petfinder{
@@ -214,11 +234,15 @@ div.returned-matches > div:nth-of-type(even) {
   padding-left: 20%;
   font-family: 'Fenix', serif; 
   color:brown;
+  -moz-color:brown;
+  -webkit-color:brown;
 }
 
 .read-more-petfinder a{
   font-size: 13px;
   color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
   /*background-color: rgba(255,204,160);*/
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
@@ -231,6 +255,8 @@ div.returned-matches > div:nth-of-type(even) {
 
 .see-more-matches a{
    color: rgba(32,98,102);
+   -moz-color: rgba(32,98,102);
+   -webkit-color: rgba(32,98,102);
    font-family: 'Roboto Slab', serif;
    padding-left: 10px;
    padding-right: 10px;
@@ -611,6 +637,8 @@ div.returned-matches > div:nth-of-type(even) {
 
 #start-button{
   background: rgba(149, 184, 191, 1);
+  -moz-background:rgba(149, 184, 191, 1);
+  -webkit-background: rgba(149, 184, 191, 1);
   -moz-border-radius: 100px / 50px;
   -webkit-border-radius: 100px / 50px;
   border-radius: 100px / 50px;
