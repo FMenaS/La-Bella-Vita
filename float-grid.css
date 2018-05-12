@@ -9,12 +9,6 @@ html {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
 
 .logo-box{
   padding-bottom: -10px;
@@ -46,9 +40,11 @@ input {
   font-size: 107%;
   padding-top: 185px;
   color: rgba(201,242,242);
+  -webkit-appearance: none;
   -moz--text-fill-color: rgba(201,242,242);
   -webkit-text-fill-color: rgba(201,242,242);
   font-family: 'Fenix', serif;
+   
 }
  
 .btn-start{
@@ -58,6 +54,7 @@ input {
 
 #start-button{
   background-color: : rgba(125, 184, 191);
+  -webkit-appearance: none;
   -moz-border-background: rgba(125, 184, 191);
   -webkit-background: rgba(125, 184, 191);
   -moz-border-radius: 100px / 50px;
