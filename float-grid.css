@@ -5,16 +5,279 @@ html {
   box-sizing: inherit;
 }
 
-@media only screen and (min-device-width : 320px) 
-and (max-device-width : 568px) { /* STYLES GO HERE */}
 
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+
+.logo-box{
+  padding-bottom: -10px;
+}
+
+.js-start-section{
+  width: 100vw;
+  height: 100vh;
+}
+
+.la-logo{
+  width:18%;
+  height:25%; 
+  box-shadow: 0 0 8px 8px rgba(125, 184, 191, 0.7);
+  padding-top: 2%;
+  margin-bottom: -5%;
+  font-weight: 
+}
+
+.start-title{
+  height: 15%;
+  font-size: 307%;
+  margin-left: 2%;
+  font-family: 'Roboto Slab', serif;
+}
+
+.app-description{
+  font-size: 107%;
+  padding-top: 185px;
+  color: rgba(201,242,242);
+  -moz--text-fill-color: rgba(201,242,242);
+  -webkit-text-fill-color: rgba(201,242,242);
+  font-family: 'Fenix', serif;
+   
+}
+ 
+.btn-start, #start-button{
+  -webkit-appearance: none;
+}
+
+.btn-start{
+  padding-top: 8px;
+  margin-left: 30%;
+}
+
+#start-button {
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#start-button{
+  background-color: : rgba(125, 184, 191);
+  -moz-border-background: rgba(125, 184, 191);
+  -webkit-background: rgba(125, 184, 191);
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+   border-radius: 100px / 50px;
+
+  font-size: 10px;
+  font-weight: bold;
+  width: 40vw;
+  height:7vh;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.js-question-form{
+  height: 100vh;
+  width: 100vw;
+  background-image:linear-gradient(rgba(38, 14,1, 0.6), rgba(89,51,17, 0.2), 
+    rgba(115,92,72, 0.2   ),rgba(125, 184, 191, 0.5));
+}
+
+legend{
+  -webkit-appearance: none;
+  padding-top:5%;
+  font-size: 20px;
+  font-family: 'Fenix', serif;
+  color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
+}
+
+fieldset{
+  border: 2px solid black;
+  padding-top: 2%;
+  height: 75vh;
+  border: none;
+}
+
+.js-question-form input{
+  margin-top: 50px;
+}
+.radio-button{
+  display: block;
+  vertical-align: top; 
+  margin: 1px;
+  padding: 1px;
+  font-size:15px;
+  font-family: 'Vesper Libre', serif;
+}
+
+.submit-button{
+  font-size: 15px;
+  color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
+  background-color: rgba(255,204,160);
+  -moz-background-color: rgba(255,204,160);
+  -webkit-background-color: rgba(255,204,160);
+  font-family: 'Roboto Slab', serif;
+  padding-left: 2px;
+  padding-right:2px;
+}
+
+.wiki-message{
+  font-family: 'Vesper Libre', serif;
+  font-size:15px;
+  color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+
+div.dog-breeds > div:nth-of-type(odd) {
+    /*background: rgba(89,51,17, 0.2);*/
+     background: rgba(89,138,143,0.3);
+}
+
+div.dog-breeds > div:nth-of-type(even) { 
+     background: rgba(214,195,153,0.7 ); 
+}
+
+.breed-name-and-image {
+  display: block;
+  font-family: 'Roboto Slab', serif;
+  margin-left: auto;
+  margin-right: auto;  
+  vertical-align: top;
+}
+
+.wiki-info p{
+  width: 75vw;
+  font-family: 'Vesper Libre', serif;
+  font-size: 12px;
+  vertical-align: middle;
+  padding-top: 2px;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.read-more-wiki{
+  padding-top: 10px;
+  padding-bottom:10px;
+  padding-left: 25%;
+  font-family: 'Fenix', serif; 
+  color:brown;
+  -moz-color:brown;
+  -webkit-color:brown;
+  /*background: rgba(193,231,240);*/
+}
+
+.read-more-wiki a{
+  font-size: 10px;
+  color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
+  /*background-color: rgba(255,204,160);*/
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+}
+
+.js-no-pets-rendered{
+  height:100vh;
+  padding-top: 20%;
+  padding-left: 25%;
+  font-family: 'Roboto Slab', serif;
+  /*Include Image?*/
+}
+
+div.returned-matches > div:nth-of-type(odd) {
+     background: rgba(89,138,143,0.3);    
+}
+
+div.returned-matches > div:nth-of-type(even) {
+    background: rgba(214,195,153,0.7 );    
+}
+
+.matches-message{
+  font-family: 'Vesper Libre', serif;
+  font-size:15px;
+  color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.pet-description {
+  width: 75vw;
+  font-family: 'Vesper Libre', serif;
+  font-size: 12px;
+  float: right;
+  vertical-align: middle;
+  padding-top: 8px;
+}
+
+.pet-characteristics{
+   font-family: 'Roboto Slab', serif;
+   vertical-align: top;
+}
+
+.pet-characteristics h2{
+   font-family: 'Roboto Slab', serif;
+   vertical-align: top;
+   font-size: 22px;
+}
+
+.pet-size, .pet-sex, .pet-age{
+  font-size: 12px;
+  padding-top: 7px;
+  padding-left: 2px;
+  color: rgba(32,98,102);
+  -moz-color: rgba(32,98,102);
+  -webkit-color: rgba(32,98,102);
+}
+
+.read-more-petfinder{
+  padding-top: 24px;
+  padding-bottom:10px;
+  padding-left: 20%;
+  font-family: 'Fenix', serif; 
+  color:brown;
+  -moz-color:brown;
+  -webkit-color:brown;
+}
+
+.read-more-petfinder a{
+  font-size: 13px;
+  color: rgba(82,51,4);
+  -moz-color: rgba(82,51,4);
+  -webkit-color: rgba(82,51,4);
+  /*background-color: rgba(255,204,160);*/
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+}
+
+.see-more-matches{
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.see-more-matches a{
+   color: rgba(32,98,102);
+   -moz-color: rgba(32,98,102);
+   -webkit-color: rgba(32,98,102);
+   font-family: 'Roboto Slab', serif;
+   padding-left: 10px;
+   padding-right: 10px;
+}   
+}
 
 
 
 
 /* Smartphones (portrait and landscape) ----------- */
-/*@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {*/
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px){
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
 
 .logo-box{
   padding-bottom: -10px;
