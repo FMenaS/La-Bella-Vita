@@ -5,10 +5,16 @@ html {
   box-sizing: inherit;
 }
 
+@media only screen and (min-device-width : 320px) 
+and (max-device-width : 568px) { /* STYLES GO HERE */}
+
+
+
+
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
-
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px){
 
 .logo-box{
   padding-bottom: -10px;
