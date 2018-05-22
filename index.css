@@ -1,4 +1,4 @@
-*{
+/**{
 	margin:0;
 	padding:0;
 }
@@ -9,10 +9,6 @@
 	padding-top: 0.005%;
 }
 
-/*.app-description{
-	font-size: 222%;
-	padding-left: 5%;
-}*/
 
 .js-start-section{
 	background: linear-gradient(rgba(125, 184, 191, 1), rgba(115,92,72, 0.2),
@@ -35,4 +31,4 @@
 	width: 300px;
 	height: 225px;
 }
-
+*/
