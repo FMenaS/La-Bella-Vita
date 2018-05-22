@@ -352,7 +352,8 @@ div.returned-matches > div:nth-of-type(even) {
 #app-summary{
   font-size: 107%;
   padding-top: 400px;
-  color: rgba(201,242,242);
+  /*color: rgba(201,242,242);*/
+  color: #C9F2F2;
   font-family: 'Fenix', serif;
 }
 
