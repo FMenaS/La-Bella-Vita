@@ -352,25 +352,13 @@ div.returned-matches > div:nth-of-type(even) {
    
 }
  
-.btn-start, #start-button{
-  -webkit-appearance: none;
-}
-
 .btn-start{
   padding-top: 8px;
   margin-left: 30%;
 }
 
-#start-button {
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 #start-button{
-  background-color: : rgba(125, 184, 191);
-  -moz-border-background: rgba(125, 184, 191);
-  -webkit-background: rgba(125, 184, 191);
+  background: rgba(149, 184, 191, 1);
   -moz-border-radius: 100px / 50px;
   -webkit-border-radius: 100px / 50px;
    border-radius: 100px / 50px;
