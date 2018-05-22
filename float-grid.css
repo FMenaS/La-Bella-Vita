@@ -44,7 +44,7 @@ html {
 }
 
 
-@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+/*@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
 
 .logo-box{
   padding-bottom: -10px;
@@ -172,7 +172,7 @@ fieldset{
 }
 
 div.dog-breeds > div:nth-of-type(odd) {
-    /*background: rgba(89,51,17, 0.2);*/
+
      background: rgba(89,138,143,0.3);
 }
 
@@ -208,7 +208,7 @@ div.dog-breeds > div:nth-of-type(even) {
   color:brown;
   -moz-color:brown;
   -webkit-color:brown;
-  /*background: rgba(193,231,240);*/
+
 }
 
 .read-more-wiki a{
@@ -216,7 +216,7 @@ div.dog-breeds > div:nth-of-type(even) {
   color: rgba(82,51,4);
   -moz-color: rgba(82,51,4);
   -webkit-color: rgba(82,51,4);
-  /*background-color: rgba(255,204,160);*/
+
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
 }
@@ -226,7 +226,7 @@ div.dog-breeds > div:nth-of-type(even) {
   padding-top: 20%;
   padding-left: 25%;
   font-family: 'Roboto Slab', serif;
-  /*Include Image?*/
+
 }
 
 div.returned-matches > div:nth-of-type(odd) {
@@ -291,7 +291,7 @@ div.returned-matches > div:nth-of-type(even) {
   color: rgba(82,51,4);
   -moz-color: rgba(82,51,4);
   -webkit-color: rgba(82,51,4);
-  /*background-color: rgba(255,204,160);*/
+
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
 }
@@ -311,7 +311,7 @@ div.returned-matches > div:nth-of-type(even) {
 }   
 }
 
-
+*/
 
 
 /* Smartphones (portrait and landscape) ----------- */
