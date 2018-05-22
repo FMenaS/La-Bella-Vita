@@ -344,16 +344,14 @@ div.returned-matches > div:nth-of-type(even) {
 
 .app-description{
   font-size: 107%;
-  padding-top: 185px;
+  padding-top: 400px;
   color: rgba(201,242,242);
-  -moz--text-fill-color: rgba(201,242,242);
-  -webkit-text-fill-color: rgba(201,242,242);
   font-family: 'Fenix', serif;
    
 }
  
 .btn-start{
-  padding-top: 8px;
+  padding-top: 15px;
   margin-left: 30%;
 }
 
