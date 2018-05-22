@@ -342,14 +342,20 @@ div.returned-matches > div:nth-of-type(even) {
   font-family: 'Roboto Slab', serif;
 }
 
-.app-description{
+/*.app-description{
   font-size: 107%;
   padding-top: 400px;
   color: rgba(201,242,242);
   font-family: 'Fenix', serif;
-   
 }
- 
+*/ 
+#app-summary{
+  font-size: 107%;
+  padding-top: 400px;
+  color: rgba(201,242,242);
+  font-family: 'Fenix', serif;
+}
+
 .btn-start{
   padding-top: 15px;
   margin-left: 30%;
