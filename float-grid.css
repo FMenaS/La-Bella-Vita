@@ -318,7 +318,7 @@ div.returned-matches > div:nth-of-type(even) {
 @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
 
 .logo-box{
-  padding-bottom: 2px;
+  padding-bottom: -10px;
 }
 
 .js-start-section{
