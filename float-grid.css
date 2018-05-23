@@ -735,14 +735,14 @@ div.returned-matches > div:nth-of-type(even) {
     rgba(115,92,72, 0.2   ),rgba(125, 184, 191, 0.5));
 }
 
-legend{
+#legend{
   padding-top:25%;
   font-size: 35px;
   font-family: 'Fenix', serif;
   color: rgba(32,98,102);
 }
 
-fieldset{
+#fieldset{
   border: 2px solid black;
   padding-top: 2%;
   height: 75vh;
@@ -752,7 +752,8 @@ fieldset{
 .js-question-form input{
   margin-top: 50px;
 }
-.radio-button{
+
+#radio-button{
   display: block;
   vertical-align: top; 
   margin: 1px;
@@ -761,7 +762,7 @@ fieldset{
   font-family: 'Vesper Libre', serif;
 }
 
-.submit-button{
+#submit-button{
   font-size: 25px;
   color: rgba(82,51,4);
   background-color: rgba(255,204,160);
@@ -971,14 +972,14 @@ div.returned-matches > div:nth-of-type(even) {
     rgba(115,92,72, 0.2   ),rgba(125, 184, 191, 0.5));
 }
 
-legend{
+#legend{
   padding-top:30%;
   font-size: 35px;
   font-family: 'Fenix', serif;
   color: rgba(32,98,102);
 }
 
-fieldset{
+#fieldset{
   border: 2px solid black;
   padding-top: 2%;
   height: 75vh;
@@ -988,7 +989,8 @@ fieldset{
 .js-question-form input{
   margin-top: 50px;
 }
-.radio-button{
+
+#radio-button{
   display: block;
   vertical-align: top; 
   margin: 1px;
@@ -997,7 +999,7 @@ fieldset{
   font-family: 'Vesper Libre', serif;
 }
 
-.submit-button{
+#submit-button{
   font-size: 25px;
   color: rgba(82,51,4);
   background-color: rgba(255,204,160);
@@ -1227,14 +1229,14 @@ iPad 3
     rgba(115,92,72, 0.2   ),rgba(125, 184, 191, 0.5));
 }
 
-legend{
+#legend{
   padding-top:7%;
   font-size: 35px;
   font-family: 'Fenix', serif;
   color: rgba(32,98,102);
 }
 
-fieldset{
+#fieldset{
   border: 2px solid black;
   padding-top: 2%;
   height: 75vh;
@@ -1244,7 +1246,8 @@ fieldset{
 .js-question-form input{
   margin-top: 50px;
 }
-.radio-button{
+
+#radio-button{
   display: block;
   vertical-align: top; 
   margin: 1px;
@@ -1253,7 +1256,7 @@ fieldset{
   font-family: 'Vesper Libre', serif;
 }
 
-.submit-button{
+#submit-button{
   font-size: 25px;
   color: rgba(82,51,4);
   background-color: rgba(255,204,160);
