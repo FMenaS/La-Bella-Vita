@@ -392,17 +392,16 @@ legend{
   border: none;
 }
 
-fieldset{
-  border: 2px solid black;
+#fieldset{
   padding-top: 2%;
   height: 75vh;
-  border: 0;
+  border: none;
 }
 
 .js-question-form input{
   margin-top: 50px;
 }
-.radio-button{
+#radio-button{
   display: block;
   vertical-align: top; 
   margin: 1px;
@@ -411,14 +410,10 @@ fieldset{
   font-family: 'Vesper Libre', serif;
 }
 
-.submit-button{
+#submit-button{
   font-size: 15px;
-  color: rgba(82,51,4);
-  -moz-color: rgba(82,51,4);
-  -webkit-color: rgba(82,51,4);
-  background-color: rgba(255,204,160);
-  -moz-background-color: rgba(255,204,160);
-  -webkit-background-color: rgba(255,204,160);
+  color: #523304;
+  background-color: #FFCCA0;
   font-family: 'Roboto Slab', serif;
   padding-left: 2px;
   padding-right:2px;
