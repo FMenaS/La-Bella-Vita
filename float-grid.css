@@ -384,7 +384,7 @@ div.returned-matches > div:nth-of-type(even) {
     rgba(115,92,72, 0.2   ),rgba(125, 184, 191, 0.5));
 }
 
-legend{
+#legend{
   padding-top:5%;
   font-size: 20px;
   font-family: 'Fenix', serif;

@@ -1106,29 +1106,29 @@ function generateQuestion(){
 	return `<div class="js-question-form" id="js-question-form">
 			<form>
 				<fieldset id="fieldset">
-					<legend> Question: ${questionBank[currentQuestion].question}
+					<legend id="legend"> Question: ${questionBank[currentQuestion].question}
 					</legend>
-					<label class="radio-button">
+					<label class="radio-button" id="radio-button">
 						<input type="radio" name="answer-option" value="0" required>
 						<span>${questionBank[currentQuestion].options[0]}</span>				
 					</label>
 
-					<label class="radio-button">
+					<label class="radio-button" id="radio-button">
 						<input type="radio" name="answer-option" value="1" required>
 						<span>${questionBank[currentQuestion].options[1]}</span>					
 					</label>
 
-					<label class="radio-button">
+					<label class="radio-button" id="radio-button">
 						<input type="radio" name="answer-option" value="2" required>	
 						<span>${questionBank[currentQuestion].options[2]}</span>				
 					</label>
 
-					<label class="radio-button">
+					<label class="radio-button" id="radio-button">
 						<input type="radio" name="answer-option" value="3" required>	
 						<span>${questionBank[currentQuestion].options[3]}</span>				
 					</label>
 
-					<input class="submit-button" type="submit" value="Submit Answer">
+					<input class="submit-button" id="submit-button" type="submit" value="Submit Answer">
 
 				</fieldset>
 			</form>
