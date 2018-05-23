@@ -708,6 +708,13 @@ div.returned-matches > div:nth-of-type(even) {
   color: rgba(201,242,242);
   font-family: 'Fenix', serif;
 }
+
+#app-summary{
+  font-size: 250%;
+  padding-top: 527px;
+  color: #C9F2F2;
+  font-family: 'Fenix', serif;
+}
  
 .btn-start{
   padding-top: 8px;
@@ -722,7 +729,7 @@ div.returned-matches > div:nth-of-type(even) {
 
   font-size: 30px;
   font-weight: bold;
-  width: 45vw;
+  width: 50vw;
   height:8vh;
   font-family: 'Roboto Slab', serif;
 }
@@ -935,12 +942,13 @@ div.returned-matches > div:nth-of-type(even) {
   font-family: 'Roboto Slab', serif;
 }
 
-.app-description{
+#app-summary{
   font-size: 250%;
   padding-top: 805px;
-  color: rgba(201,242,242);
+  color: #C9F2F2;
   font-family: 'Fenix', serif;
 }
+ 
  
 .btn-start{
   padding-top: 48px;
@@ -1190,12 +1198,12 @@ iPad 3
   font-family: 'Roboto Slab', serif;
 }
 
-.app-description{
+#app-smmary{
   font-size: 250%;
   padding-top: 375px;
   padding-left: 20px;
   padding-right: 10px;
-  color: rgba(201,242,242);
+  color: #C9F2F2;
   font-family: 'Fenix', serif;
 }
  
