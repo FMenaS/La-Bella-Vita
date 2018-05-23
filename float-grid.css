@@ -392,6 +392,7 @@ legend{
   color: rgba(32,98,102);
   -moz-color: rgba(32,98,102);
   -webkit-color: rgba(32,98,102);
+  border: none;
 }
 
 fieldset{
