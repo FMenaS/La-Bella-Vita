@@ -351,7 +351,7 @@ div.returned-matches > div:nth-of-type(even) {
 */ 
 #app-summary{
   font-size: 107%;
-  padding-top: 375px;
+  padding-top: 350px;
   /*color: rgba(201,242,242);*/
   color: #C9F2F2;
   font-family: 'Fenix', serif;
@@ -368,9 +368,9 @@ div.returned-matches > div:nth-of-type(even) {
   -webkit-border-radius: 100px / 50px;
    border-radius: 100px / 50px;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
-  width: 44vw;
+  width: 48vw;
   height:8vh;
   font-family: 'Roboto Slab', serif;
 
