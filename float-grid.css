@@ -332,6 +332,7 @@ div.returned-matches > div:nth-of-type(even) {
   box-shadow: 0 0 8px 8px rgba(125, 184, 191, 0.7);
   padding-top: 1%;
   margin-bottom: -5%;
+  float: left;
 }
 
 .start-title{
@@ -339,6 +340,7 @@ div.returned-matches > div:nth-of-type(even) {
   font-size: 307%;
   margin-left: 2%;
   font-family: 'Roboto Slab', serif;
+  float: left;
 }
 
 /*.app-description{
