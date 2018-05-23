@@ -16,11 +16,6 @@ html {
   padding-top: 0.005%;
 }
 
-/*.app-description{
-  font-size: 222%;
-  padding-left: 5%;
-}*/
-
 .js-start-section{
   background: linear-gradient(rgba(125, 184, 191, 1), rgba(115,92,72, 0.2),
   rgba(89,51,17, 0.4), rgba(38, 14,1, 0.7)),
@@ -142,12 +137,10 @@ html {
   padding-right:2px;
 }
 
-#wiki-message{
+.wiki-message{
   font-family: 'Vesper Libre', serif;
   font-size:15px;
   color: #206266;
-  /*-moz-color: #206266;
-  -webkit-color: #206266;*/
   padding-top: 5px;
   padding-bottom: 0px;
 }
@@ -175,7 +168,7 @@ div.dog-breeds > div:nth-of-type(even) {
   font-size: 12px;
   vertical-align: middle;
   padding-top: 2px;
-  padding-left: 15px;
+  padding-left: 30px;
 }
 
 .inline-block{
@@ -216,9 +209,7 @@ div.returned-matches > div:nth-of-type(even) {
 .matches-message{
   font-family: 'Vesper Libre', serif;
   font-size:15px;
-  color: rgba(32,98,102);
-  -moz-color: rgba(32,98,102);
-  -webkit-color: rgba(32,98,102);
+  color: #206266;
   padding-top: 15px;
   padding-bottom: 10px;
 }
@@ -379,7 +370,7 @@ div.returned-matches > div:nth-of-type(even) {
   padding-right:2px;
 }
 
-#wiki-message{
+.wiki-message{
   font-family: 'Vesper Libre', serif;
   font-size:25px;
   color: #206266;
@@ -451,7 +442,7 @@ div.returned-matches > div:nth-of-type(even) {
 .matches-message{
   font-family: 'Vesper Libre', serif;
   font-size:25px;
-  color: rgba(32,98,102);
+  color: #206266;
   padding-top: 15px;
   padding-bottom: 10px;
 }
@@ -612,7 +603,7 @@ div.returned-matches > div:nth-of-type(even) {
   padding-right:2px;
 }
 
-#wiki-message{
+.wiki-message{
   font-family: 'Vesper Libre', serif;
   font-size:25px;
   color: #206266;
@@ -684,7 +675,7 @@ div.returned-matches > div:nth-of-type(even) {
 .matches-message{
   font-family: 'Vesper Libre', serif;
   font-size:25px;
-  color: rgba(32,98,102);
+  color: #206266;
   padding-top: 15px;
   padding-bottom: 10px;
 }
@@ -866,7 +857,7 @@ iPad 3
   padding-right:2px;
 }
 
-#wiki-message{
+.wiki-message{
   font-family: 'Vesper Libre', serif;
   font-size:25px;
   color: #206266;
