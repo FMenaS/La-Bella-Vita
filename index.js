@@ -1105,7 +1105,7 @@ function generateQuestion(){
 
 	return `<div class="js-question-form">
 			<form>
-			<fieldset>
+			<fieldset id="field-set">
 				<legend> Question: ${questionBank[currentQuestion].question}
 				</legend>
 				<label class="radio-button">
