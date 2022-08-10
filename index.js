@@ -895,7 +895,7 @@ const dogBreedMatch= [
 					petFinder: "Swedish Vallhund"
 				},
 				{
-					wiki: "Dalmatian dog",
+					wiki: "Dalmatian (dog)",
 					petFinder: "Dalmatian"
 				},
 				{	
