@@ -957,7 +957,7 @@ const dogBreedMatch= [
 					petFinder: "Finnish Spitz" 
 				},
 				{
-					wiki: "Flat-Coated Retriever",
+					wiki: "Flat-coated Retriever",
 					petFinder: "Flat-Coated Retriever" 
 				},
 				{
