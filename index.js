@@ -834,7 +834,7 @@ const dogBreedMatch= [
 					petFinder: "Border Collie"
 				},
 				{
-					wiki: "Brittany dog",
+					wiki: "Brittany (dog)",
 					petFinder: "Brittany Spaniel" 
 				},
 				{
