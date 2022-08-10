@@ -928,7 +928,7 @@ const dogBreedMatch= [
 					petFinder: "Australian Shepherd"
 				},
 				{
-					wiki: "Malinois dog",
+					wiki: "Belgian Shepherd",
 					petFinder: "Belgian Shepherd / Malinois"
  				},
  				{
