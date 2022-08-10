@@ -1067,7 +1067,7 @@ const dogBreedMatch= [
 					petFinder:"Pointer"
 				}, 
 				{
-					wiki: "Puli",
+					wiki: "Puli dog",
 					petFinder: "Puli"
 				}, 
 				{
